@@ -14,19 +14,19 @@ region(burgundy).
 region(chateau_d_esclans).
 region(piemonte).
 region(rheinhessen).
-region(rhône).
+region(rhone).
 region(tuscany).
 region(vaucluse).
-region(vosne_romanée).
+region(vosne_romanee).
 
 % country regions
 region_of(france, anjou-saumur).
 region_of(france, bordeaux).
 region_of(france, burgundy).
 region_of(france, chateau_d_esclans).
-region_of(france, rhône).
+region_of(france, rhone).
 region_of(france, vaucluse).
-region_of(france, vosne_romanée).
+region_of(france, vosne_romanee).
 region_of(germany, rheinhessen).
 region_of(italy, abruzzi).
 region_of(italy, piemonte).
@@ -41,7 +41,7 @@ grape(cabernet_sauvignon).
 grape(carignan).
 grape(chardonnay).
 grape(chardonnay_rose).
-grape(crémant).
+grape(cremant).
 grape(grenache).
 grape(marsanne).
 grape(merlot).
@@ -56,7 +56,7 @@ grape(vermentino).
 
 % grape regions
 grape_from(andalusia, palomino).
-grape_from(anjou-saumur, crémant).
+grape_from(anjou-saumur, cremant).
 grape_from(anjou-saumur, riesling).
 grape_from(aragona, carignan).
 grape_from(bordeaux, cabernet_franc).
@@ -70,12 +70,12 @@ grape_from(friuli, cabernet_sauvignon).
 grape_from(friuli, merlot).
 grape_from(piemonte, moscato).
 grape_from(rheinhessen, riesling).
-grape_from(rhône, marsanne).
+grape_from(rhone, marsanne).
 grape_from(tuscany, brunello).
 grape_from(tuscany, sangiovese).
 grape_from(vaucluse, grenache).
 grape_from(vaucluse, syrah).
-grape_from(vosne_romanée, pinot_noir).
+grape_from(vosne_romanee, pinot_noir).
 grape_from(abruzzi, trebbiano).
 
 % wine categories
@@ -110,13 +110,13 @@ wine(coteau_de_la_beylesse).
 wine(cremant_d_alsace).
 wine(fino).
 wine(g_max_reisling).
-wine(garrus_rosè).
+wine(garrus_rose).
 wine(hermitage_aoc).
-wine(juline_châteauneuf_du_pape).
+wine(juline_chateauneuf_du_pape).
 wine(marsannay).
 wine(occhio_di_pernice).
-wine(pomerol_château_de_salesl).
-wine(romanée_saint).
+wine(pomerol_chateau_de_salesl).
+wine(romanee_saint).
 wine(sauternes).
 wine(trebbiano_d_abruzzo).
 wine(vajra_mosacto_d_asti).
@@ -128,32 +128,32 @@ grape_of(brunello_di_montalcino, sangiovese).
 grape_of(case_basse_sangiovese, sangiovese).
 grape_of(corton_charlemagne_grand_cru, chardonnay).
 grape_of(coteau_de_la_beylesse, marsanne).
-grape_of(cremant_d_alsace, crémant).
+grape_of(cremant_d_alsace, cremant).
 grape_of(fino, palomino).
 grape_of(g_max_reisling, riesling).
-grape_of(garrus_rosè, vermentino).
+grape_of(garrus_rose, vermentino).
 grape_of(hermitage_aoc, marsanne).
-grape_of(juline_châteauneuf_du_pape, grenache).
-grape_of(juline_châteauneuf_du_pape, syrah).
+grape_of(juline_chateauneuf_du_pape, grenache).
+grape_of(juline_chateauneuf_du_pape, syrah).
 grape_of(marsannay, chardonnay_rose).
 grape_of(occhio_di_pernice, sangiovese).
 grape_of(occhio_di_pernice, syrah).
-grape_of(pomerol_château_de_salesl, cabernet_franc).
-grape_of(pomerol_château_de_salesl, cabernet_sauvignon).
-grape_of(pomerol_château_de_salesl, merlot).
-grape_of(romanée_saint, pinot_noir).
+grape_of(pomerol_chateau_de_salesl, cabernet_franc).
+grape_of(pomerol_chateau_de_salesl, cabernet_sauvignon).
+grape_of(pomerol_chateau_de_salesl, merlot).
+grape_of(romanee_saint, pinot_noir).
 grape_of(sauternes, chardonnay).
 grape_of(trebbiano_d_abruzzo, trebbiano).
 grape_of(vajra_mosacto_d_asti, moscato).
 
 % wine categories
 category_of(brunello_di_montalcino, bold_red).
-category_of(juline_châteauneuf_du_pape, bold_red).
+category_of(juline_chateauneuf_du_pape, bold_red).
 category_of(case_basse_sangiovese, medium_red).
-category_of(pomerol_château_de_salesl, medium_red).
+category_of(pomerol_chateau_de_salesl, medium_red).
 category_of(aragone, light_red).
-category_of(romanée_saint, light_red).
-category_of(garrus_rosè, rose).
+category_of(romanee_saint, light_red).
+category_of(garrus_rose, rose).
 category_of(marsannay, rose).
 category_of(corton_charlemagne_grand_cru, rich_white).
 category_of(hermitage_aoc, rich_white).
@@ -175,13 +175,13 @@ taste_of(coteau_de_la_beylesse, bold).
 taste_of(cremant_d_alsace, bold).
 taste_of(fino, bold).
 taste_of(g_max_reisling, bold).
-taste_of(garrus_rosè, light).
+taste_of(garrus_rose, light).
 taste_of(hermitage_aoc, bold).
-taste_of(juline_châteauneuf_du_pape, bold).
+taste_of(juline_chateauneuf_du_pape, bold).
 taste_of(marsannay, light).
 taste_of(occhio_di_pernice, light).
-taste_of(pomerol_château_de_salesl, bold).
-taste_of(romanée_saint, bold).
+taste_of(pomerol_chateau_de_salesl, bold).
+taste_of(romanee_saint, bold).
 taste_of(sauternes, bold).
 taste_of(trebbiano_d_abruzzo, bold).
 taste_of(vajra_mosacto_d_asti, light).
@@ -195,13 +195,13 @@ tannin_of(coteau_de_la_beylesse, tannic).
 tannin_of(cremant_d_alsace, less_tannic).
 tannin_of(fino, less_tannic).
 tannin_of(g_max_reisling, less_tannic).
-tannin_of(garrus_rosè, tannic).
+tannin_of(garrus_rose, tannic).
 tannin_of(hermitage_aoc, tannic).
-tannin_of(juline_châteauneuf_du_pape, tannic).
+tannin_of(juline_chateauneuf_du_pape, tannic).
 tannin_of(marsannay, tannic).
 tannin_of(occhio_di_pernice, tannic).
-tannin_of(pomerol_château_de_salesl, tannic).
-tannin_of(romanée_saint, tannic).
+tannin_of(pomerol_chateau_de_salesl, tannic).
+tannin_of(romanee_saint, tannic).
 tannin_of(sauternes, less_tannic).
 tannin_of(trebbiano_d_abruzzo, less_tannic).
 tannin_of(vajra_mosacto_d_asti, less_tannic).
@@ -215,13 +215,13 @@ dryness_of(coteau_de_la_beylesse, dry).
 dryness_of(cremant_d_alsace, dry).
 dryness_of(fino, dry).
 dryness_of(g_max_reisling, dry).
-dryness_of(garrus_rosè, dry).
+dryness_of(garrus_rose, dry).
 dryness_of(hermitage_aoc, dry).
-dryness_of(juline_châteauneuf_du_pape, dry).
+dryness_of(juline_chateauneuf_du_pape, dry).
 dryness_of(marsannay, not_dry).
 dryness_of(occhio_di_pernice, not_dry).
-dryness_of(pomerol_château_de_salesl, dry).
-dryness_of(romanée_saint, dry).
+dryness_of(pomerol_chateau_de_salesl, dry).
+dryness_of(romanee_saint, dry).
 dryness_of(sauternes, not_dry).
 dryness_of(trebbiano_d_abruzzo, dry).
 dryness_of(vajra_mosacto_d_asti, dry).
