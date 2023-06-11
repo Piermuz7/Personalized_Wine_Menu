@@ -1,6 +1,6 @@
 % countries
 country(france).
-country(german).
+country(germany).
 country(italy).
 country(spain).
 
@@ -29,6 +29,7 @@ region_of(france, vaucluse).
 region_of(france, vosne_romanee).
 region_of(germany, rheinhessen).
 region_of(italy, abruzzi).
+region_of(italy, friuli).
 region_of(italy, piemonte).
 region_of(italy, tuscany).
 region_of(spain, andalusia).
@@ -54,30 +55,6 @@ grape(syrah).
 grape(trebbiano).
 grape(vermentino).
 
-% grape regions
-grape_from(andalusia, palomino).
-grape_from(anjou-saumur, cremant).
-grape_from(anjou-saumur, riesling).
-grape_from(aragona, carignan).
-grape_from(bordeaux, cabernet_franc).
-grape_from(bordeaux, cabernet_sauvignon).
-grape_from(bordeaux, chardonnay).
-grape_from(bordeaux, merlot).
-grape_from(burgundy, chardonnay).
-grape_from(burgundy, chardonnay_rose).
-grape_from(chateau_d_esclans, vermentino).
-grape_from(friuli, cabernet_sauvignon).
-grape_from(friuli, merlot).
-grape_from(piemonte, moscato).
-grape_from(rheinhessen, riesling).
-grape_from(rhone, marsanne).
-grape_from(tuscany, brunello).
-grape_from(tuscany, sangiovese).
-grape_from(vaucluse, grenache).
-grape_from(vaucluse, syrah).
-grape_from(vosne_romanee, pinot_noir).
-grape_from(abruzzi, trebbiano).
-
 % wine categories
 wine_category(bold_red).
 wine_category(medium_red).
@@ -86,7 +63,7 @@ wine_category(rose).
 wine_category(rich_white).
 wine_category(light_white).
 wine_category(sparkling).
-wine_category(sweet).
+wine_category(sweet_white).
 wine_category(dessert).
 
 % tastes
@@ -145,6 +122,26 @@ grape_of(romanee_saint, pinot_noir).
 grape_of(sauternes, chardonnay).
 grape_of(trebbiano_d_abruzzo, trebbiano).
 grape_of(vajra_mosacto_d_asti, moscato).
+
+% wine regions
+wine_from(aragona, aragone).
+wine_from(tuscany, brunello_di_montalcino).
+wine_from(tuscany, case_basse_sangiovese).
+wine_from(burgundy, corton_charlemagne_grand_cru).
+wine_from(rhone, coteau_de_la_beylesse).
+wine_from(anjou-saumur, cremant_d_alsace).
+wine_from(andalusia, fino).
+wine_from(rheinhessen, g_max_reisling).
+wine_from(chateau_d_esclans, garrus_rose).
+wine_from(rhone, hermitage_aoc).
+wine_from(vaucluse, juline_chateauneuf_du_pape).
+wine_from(burgundy, marsannay).
+wine_from(tuscany, occhio_di_pernice).
+wine_from(bordeaux, pomerol_chateau_de_salesl).
+wine_from(vosne_romanee,romanee_saint).
+wine_from(bordeaux, sauternes).
+wine_from(abruzzi, trebbiano_d_abruzzo).
+wine_from(piemonte, vajra_mosacto_d_asti).
 
 % wine categories
 category_of(brunello_di_montalcino, bold_red).
@@ -232,6 +229,7 @@ meal(pulled_pork).
 meal(pumpkin_risotto).
 meal(roast_chicken_with_herbs).
 meal(sliced_beef).
+meal(strawberry_cheesecake).
 
 % ideal wines
 ideal_wine(grilled_bass_with_herbs, light_white).
@@ -245,18 +243,21 @@ ideal_wine(roast_chicken_with_herbs, medium_red).
 ideal_wine(roast_chicken_with_herbs, rose).
 ideal_wine(sliced_beef, bold_red).
 ideal_wine(sliced_beef, medium_red).
+ideal_wine(strawberry_cheesecake, dessert).
+ideal_wine(strawberry_cheesecake, sparkling).
+ideal_wine(strawberry_cheesecake, sweet_white).
 
 % predicates
 is_ideal_wine(W,M) :- ideal_wine(M,CAT), category_of(W,CAT), wine_category(CAT).
 region_belongs(R,C) :- country(C), region(R), region_of(C,R).
-grape_origin(G,W,R) :- grape_from(R,G), grape_of(W,G), grape(G).
+wine_origin(G,W,R) :- wine_from(R,W), grape_of(W,G), grape(G).
 
 suggested_wines(W,M,C,R,G,T,TL,D) :- 
     wine(W),
     meal(M), 
     is_ideal_wine(W,M),
     region_belongs(R,C),
-    grape_origin(G,W,R),
+    wine_origin(G,W,R),
     taste_of(W,T),
     tannin_of(W,TL),
     dryness_of(W,D).

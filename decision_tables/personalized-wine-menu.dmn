@@ -982,7 +982,7 @@
           <text>Meal</text>
         </inputExpression>
         <inputValues id="UnaryTests_0vjdclx">
-          <text>"sliced beef","grilled bass with herbs","pumpkin risotto","roast chicken with herbs","pulled pork"</text>
+          <text>"sliced beef","grilled bass with herbs","pumpkin risotto","roast chicken with herbs","pulled pork","strawberry cheesecake"</text>
         </inputValues>
       </input>
       <output id="OutputClause_1thvtff" label="Meal_Wine_Categories" name="Meal_Wine_Categories" typeRef="string">
@@ -1076,6 +1076,30 @@
         </inputEntry>
         <outputEntry id="LiteralExpression_1txm9te">
           <text>"medium red"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12q2l3n">
+        <inputEntry id="UnaryTests_049uspj">
+          <text>"strawberry cheesecake"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0m1wlku">
+          <text>"dessert"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07o2drn">
+        <inputEntry id="UnaryTests_0v2qkib">
+          <text>"strawberry cheesecake"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_168yyor">
+          <text>"sparkling"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1nngl5q">
+        <inputEntry id="UnaryTests_11lfh3t">
+          <text>"strawberry cheesecake"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1curux8">
+          <text>"sweet white"</text>
         </outputEntry>
       </rule>
     </decisionTable>
