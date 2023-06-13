@@ -1,0 +1,985 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/"
+     xml:base="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:kebi2023="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#has_category -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#has_category">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#has_grape -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#has_grape">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_country_of -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_country_of">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_ideal_for_category -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_ideal_for_category">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_region_of -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_region_of">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_wine_from_country -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_wine_from_country">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_wine_from_region -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_wine_from_region">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#has_taste -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#has_taste">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>bold</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>light</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_dry -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_dry">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_tannic -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_tannic">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#geographical-area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#drink -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#drink"/>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#fruit -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#fruit"/>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#geographical-area -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#geographical-area"/>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#fruit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal"/>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#geographical-area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#drink"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_bold_red -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_bold_red">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_dessert -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_dessert">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_light_red -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_light_red">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_light_white -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_light_white">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_medium_red -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_medium_red">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_rich_white -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_rich_white">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_rose -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_rose">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_sparkling -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_sparkling">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_sweet_white -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_sweet_white">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_france -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_france">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_germany -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_germany">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_italy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_italy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_spain -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_spain">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_brunello -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_brunello">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_cabernet_franc -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_cabernet_franc">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_cabernet_sauvignon -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_cabernet_sauvignon">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_carignan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_carignan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_chardonnay -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_chardonnay">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_chardonnay_rose -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_chardonnay_rose">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_cremant -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_cremant">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_grenache -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_grenache">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_marsanne -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_marsanne">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_merlot -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_merlot">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_moscato -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_moscato">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_palomino -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_palomino">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_pinot_noir -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_pinot_noir">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_riesling -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_riesling">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_sangiovese -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_sangiovese">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_syrah -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_syrah">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_trebbiano -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_trebbiano">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_vermentino -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_vermentino">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal_grilled_bass_with_herbs -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal_grilled_bass_with_herbs">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal"/>
+        <kebi2023:is_ideal_for_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_light_white"/>
+        <kebi2023:is_ideal_for_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_sparkling"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal_pulled_pork -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal_pulled_pork">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal"/>
+        <kebi2023:is_ideal_for_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_bold_red"/>
+        <kebi2023:is_ideal_for_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_medium_red"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal_pumpkin_risotto -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal_pumpkin_risotto">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal"/>
+        <kebi2023:is_ideal_for_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_rich_white"/>
+        <kebi2023:is_ideal_for_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_rose"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal_roast_chicken_with_herbs -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal_roast_chicken_with_herbs">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal"/>
+        <kebi2023:is_ideal_for_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_light_red"/>
+        <kebi2023:is_ideal_for_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_medium_red"/>
+        <kebi2023:is_ideal_for_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_rose"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal_sliced_beef -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal_sliced_beef">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal"/>
+        <kebi2023:is_ideal_for_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_bold_red"/>
+        <kebi2023:is_ideal_for_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_medium_red"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal_strawberry_cheesecake -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal_strawberry_cheesecake">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal"/>
+        <kebi2023:is_ideal_for_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_dessert"/>
+        <kebi2023:is_ideal_for_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_sparkling"/>
+        <kebi2023:is_ideal_for_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_sweet_white"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_abruzzi -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_abruzzi">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region"/>
+        <kebi2023:is_region_of rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_italy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_andalusia -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_andalusia">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region"/>
+        <kebi2023:is_region_of rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_spain"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_anjou_saumur -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_anjou_saumur">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region"/>
+        <kebi2023:is_region_of rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_france"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_aragona -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_aragona">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region"/>
+        <kebi2023:is_region_of rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_spain"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_bordeaux -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_bordeaux">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region"/>
+        <kebi2023:is_region_of rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_france"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_burgundy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_burgundy">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region"/>
+        <kebi2023:is_region_of rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_france"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_chateau_d_esclans -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_chateau_d_esclans">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region"/>
+        <kebi2023:is_region_of rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_france"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_piemonte -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_piemonte">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region"/>
+        <kebi2023:is_region_of rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_italy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_rheinhessen -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_rheinhessen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region"/>
+        <kebi2023:is_region_of rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_germany"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_rhone -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_rhone">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region"/>
+        <kebi2023:is_region_of rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_france"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_tuscany -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_tuscany">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region"/>
+        <kebi2023:is_region_of rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_italy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_vaucluse -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_vaucluse">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region"/>
+        <kebi2023:is_region_of rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_france"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_vosne_romanee -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_vosne_romanee">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region"/>
+        <kebi2023:is_region_of rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country_france"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_aragone -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_aragone">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_light_red"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_carignan"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_aragona"/>
+        <kebi2023:has_taste>bold</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_brunello_di_montalcino -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_brunello_di_montalcino">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_bold_red"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_brunello"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_sangiovese"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_tuscany"/>
+        <kebi2023:has_taste>bold</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_case_basse_sangiovese -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_case_basse_sangiovese">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_medium_red"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_sangiovese"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_tuscany"/>
+        <kebi2023:has_taste>bold</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_corton_charlemagne_grand_cru -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_corton_charlemagne_grand_cru">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_rich_white"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_chardonnay"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_burgundy"/>
+        <kebi2023:has_taste>light</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_coteau_de_la_beylesse -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_coteau_de_la_beylesse">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_sparkling"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_marsanne"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_rhone"/>
+        <kebi2023:has_taste>bold</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_cremant_d_alsace -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_cremant_d_alsace">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_sparkling"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_cremant"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_anjou_saumur"/>
+        <kebi2023:has_taste>bold</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_fino -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_fino">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_dessert"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_palomino"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_andalusia"/>
+        <kebi2023:has_taste>bold</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_g_max_reisling -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_g_max_reisling">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_sweet_white"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_riesling"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_rheinhessen"/>
+        <kebi2023:has_taste>bold</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_garrus_rose -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_garrus_rose">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_rose"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_vermentino"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_chateau_d_esclans"/>
+        <kebi2023:has_taste>light</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_hermitage_aoc -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_hermitage_aoc">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_rich_white"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_marsanne"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_rhone"/>
+        <kebi2023:has_taste>bold</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_juline_chateauneuf_du_pape -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_juline_chateauneuf_du_pape">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_bold_red"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_grenache"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_syrah"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_vaucluse"/>
+        <kebi2023:has_taste>bold</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_marsannay -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_marsannay">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_rose"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_chardonnay"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_chardonnay_rose"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_burgundy"/>
+        <kebi2023:has_taste>light</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_occhio_di_pernice -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_occhio_di_pernice">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_dessert"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_sangiovese"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_syrah"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_tuscany"/>
+        <kebi2023:has_taste>light</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_pomerol_chateau_de_salesl -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_pomerol_chateau_de_salesl">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_medium_red"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_cabernet_franc"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_cabernet_sauvignon"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_merlot"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_bordeaux"/>
+        <kebi2023:has_taste>bold</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_romanee_saint -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_romanee_saint">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_light_red"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_pinot_noir"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_vosne_romanee"/>
+        <kebi2023:has_taste>bold</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_sauternes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_sauternes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_light_white"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_chardonnay"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_bordeaux"/>
+        <kebi2023:has_taste>bold</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_trebbiano_d_abruzzo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_trebbiano_d_abruzzo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_light_white"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_trebbiano"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_abruzzi"/>
+        <kebi2023:has_taste>bold</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_vajra_mosacto_d_asti -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine_vajra_mosacto_d_asti">
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#wine"/>
+        <kebi2023:has_category rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_sweet_white"/>
+        <kebi2023:has_grape rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#grape_moscato"/>
+        <kebi2023:is_wine_from_region rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region_piemonte"/>
+        <kebi2023:has_taste>light</kebi2023:has_taste>
+        <kebi2023:is_dry rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</kebi2023:is_dry>
+        <kebi2023:is_tannic rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</kebi2023:is_tannic>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/r">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/c">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_region_of"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/r"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/c"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_country_of"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/c"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
+
