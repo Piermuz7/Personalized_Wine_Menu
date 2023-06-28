@@ -1,3 +1,10 @@
+% list operation (utility for grape inclusion/exclusion)
+is_in_list(H,[H|_]).
+is_in_list(H,[_|T]) :- is_in_list(H,T).
+list_intersection([], _, []).
+list_intersection([H|T], L2, [H|L1]) :- is_in_list(H,L2), !, list_intersection(T,L2,L1).
+list_intersection([_|T],L2,L1) :- list_intersection(T,L2,L1).
+
 % countries
 country(france).
 country(germany).
@@ -99,29 +106,24 @@ wine(trebbiano_d_abruzzo).
 wine(vajra_mosacto_d_asti).
 
 % wine grapes
-grape_of(aragone, carignan).
-grape_of(brunello_di_montalcino, brunello).
-grape_of(brunello_di_montalcino, sangiovese).
-grape_of(case_basse_sangiovese, sangiovese).
-grape_of(corton_charlemagne_grand_cru, chardonnay).
-grape_of(coteau_de_la_beylesse, marsanne).
-grape_of(cremant_d_alsace, cremant).
-grape_of(fino, palomino).
-grape_of(g_max_reisling, riesling).
-grape_of(garrus_rose, vermentino).
-grape_of(hermitage_aoc, marsanne).
-grape_of(juline_chateauneuf_du_pape, grenache).
-grape_of(juline_chateauneuf_du_pape, syrah).
-grape_of(marsannay, chardonnay_rose).
-grape_of(occhio_di_pernice, sangiovese).
-grape_of(occhio_di_pernice, syrah).
-grape_of(pomerol_chateau_de_salesl, cabernet_franc).
-grape_of(pomerol_chateau_de_salesl, cabernet_sauvignon).
-grape_of(pomerol_chateau_de_salesl, merlot).
-grape_of(romanee_saint, pinot_noir).
-grape_of(sauternes, chardonnay).
-grape_of(trebbiano_d_abruzzo, trebbiano).
-grape_of(vajra_mosacto_d_asti, moscato).
+grapes_of(aragone, [carignan]).
+grapes_of(brunello_di_montalcino, [brunello,sangiovese]).
+grapes_of(case_basse_sangiovese, [sangiovese]).
+grapes_of(corton_charlemagne_grand_cru, [chardonnay]).
+grapes_of(coteau_de_la_beylesse, [marsanne]).
+grapes_of(cremant_d_alsace, [cremant]).
+grapes_of(fino, [palomino]).
+grapes_of(g_max_reisling, [riesling]).
+grapes_of(garrus_rose, [vermentino]).
+grapes_of(hermitage_aoc, [marsanne]).
+grapes_of(juline_chateauneuf_du_pape, [grenache,syrah]).
+grapes_of(marsannay, [chardonnay_rose]).
+grapes_of(occhio_di_pernice, [sangiovese,syrah]).
+grapes_of(pomerol_chateau_de_salesl, [cabernet_franc,cabernet_sauvignon,merlot]).
+grapes_of(romanee_saint, [pinot_noir]).
+grapes_of(sauternes, [chardonnay]).
+grapes_of(trebbiano_d_abruzzo, [trebbiano]).
+grapes_of(vajra_mosacto_d_asti, [moscato]).
 
 % wine regions
 wine_from(aragona, aragone).
@@ -224,40 +226,70 @@ dryness_of(trebbiano_d_abruzzo, dry).
 dryness_of(vajra_mosacto_d_asti, dry).
 
 % meals
-meal(grilled_bass_with_herbs).
+meal(fried_bass_with_herbs).
 meal(pulled_pork).
 meal(pumpkin_risotto).
 meal(roast_chicken_with_herbs).
 meal(sliced_beef).
 meal(strawberry_cheesecake).
 
-% ideal wines
-ideal_wine(grilled_bass_with_herbs, light_white).
-ideal_wine(grilled_bass_with_herbs, sparkling).
-ideal_wine(pulled_pork, bold_red).
-ideal_wine(pulled_pork, medium_red).
-ideal_wine(pumpkin_risotto, rich_white).
-ideal_wine(pumpkin_risotto, rose).
-ideal_wine(roast_chicken_with_herbs, light_red).
-ideal_wine(roast_chicken_with_herbs, medium_red).
-ideal_wine(roast_chicken_with_herbs, rose).
-ideal_wine(sliced_beef, bold_red).
-ideal_wine(sliced_beef, medium_red).
-ideal_wine(strawberry_cheesecake, dessert).
-ideal_wine(strawberry_cheesecake, sparkling).
-ideal_wine(strawberry_cheesecake, sweet_white).
+% ideal strong wines
+ideal_strong_wine(fried_bass_with_herbs, light_white).
+ideal_strong_wine(pulled_pork, bold_red).
+ideal_strong_wine(pulled_pork, medium_red).
+ideal_strong_wine(pumpkin_risotto, rich_white).
+ideal_strong_wine(pumpkin_risotto, rose).
+ideal_strong_wine(roast_chicken_with_herbs, light_red).
+ideal_strong_wine(sliced_beef, bold_red).
+ideal_strong_wine(strawberry_cheesecake, sweet_white).
+
+% ideal weak wines
+ideal_weak_wine(fried_bass_with_herbs, rich_white).
+ideal_weak_wine(pumpkin_risotto, sweet_white).
+ideal_weak_wine(roast_chicken_with_herbs, medium_red).
+ideal_weak_wine(roast_chicken_with_herbs, rose).
+ideal_weak_wine(sliced_beef, medium_red).
+ideal_weak_wine(strawberry_cheesecake, dessert).
+ideal_weak_wine(strawberry_cheesecake, sparkling).
 
 % predicates
-is_ideal_wine(W,M) :- ideal_wine(M,CAT), category_of(W,CAT), wine_category(CAT).
-region_belongs(R,C) :- country(C), region(R), region_of(C,R).
-wine_origin(G,W,R) :- wine_from(R,W), grape_of(W,G), grape(G).
+wine_checking(W,C,R,T,TL,D) :- wine(W), 
+    region_belongs(R,C), wine_origin(W,R), taste_of(W,T), 
+    tannin_of(W,TL), dryness_of(W,D).
 
-suggested_wines(W,M,C,R,G,T,TL,D) :- 
-    wine(W),
-    meal(M), 
-    is_ideal_wine(W,M),
-    region_belongs(R,C),
-    wine_origin(G,W,R),
-    taste_of(W,T),
-    tannin_of(W,TL),
-    dryness_of(W,D).
+is_ideal_strong_wine(W,M) :- ideal_strong_wine(M,CAT), category_of(W,CAT), wine_category(CAT).
+
+is_ideal_weak_wine(W,M) :- ideal_weak_wine(M,CAT), category_of(W,CAT), wine_category(CAT).
+
+region_belongs(R,C) :- country(C), region(R), region_of(C,R).
+
+wine_origin(W,R) :- wine_from(R,W).
+
+include_wine_by_grape(W,IG) :- IG=[] -> (grapes_of(W,_));
+    grapes_of(W,GS),is_in_list(G,IG), is_in_list(G,GS).
+
+exclude_wine_by_grape(W,EG) :- grapes_of(W,GS), list_intersection(GS,EG,NW), 
+    not(is_in_list(G,NW)), is_in_list(G,GS).
+
+suggested_strong_wines(STRONG,M,IG,EG,C,R,T,TL,D) :-
+	wine_checking(STRONG,C,R,T,TL,D),
+    include_wine_by_grape(STRONG,IG),
+    exclude_wine_by_grape(STRONG,EG),
+    meal(M),
+    is_ideal_strong_wine(STRONG,M).
+
+suggested_weak_wines(WEAK,M,IG,EG,C,R,T,TL,D) :-
+	wine_checking(WEAK,C,R,T,TL,D),
+    include_wine_by_grape(WEAK,IG),
+	exclude_wine_by_grape(WEAK,EG),
+    meal(M),
+    is_ideal_weak_wine(WEAK,M).
+
+% suggested_wines(STRONG,WEAK,roast_chicken_with_herbs,[],[],C,R,T,TL,D)
+% NOTE: M, the meal is needed.
+% IG, Include Grape and EG, Exclude Grape should be empty lists [], [] if
+% there are no preferences about inclusion and exclusion of grapes.
+
+suggested_wines(STRONG,WEAK,M,IG,EG,C,R,T,TL,D) :-
+    suggested_strong_wines(STRONG,M,IG,EG,C,R,T,TL,D);
+    suggested_weak_wines(WEAK,M,IG,EG,C,R,T,TL,D).
