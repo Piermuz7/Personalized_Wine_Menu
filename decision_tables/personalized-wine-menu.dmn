@@ -550,17 +550,123 @@
       </input>
       <output id="OutputClause_0dq8z4s" label="Flavor_Wine_Preferences" name="Flavor_Wine_Preferences" typeRef="" biodi:width="466" />
       <rule id="DecisionRule_1b8g5qa">
+        <description>include, include, include</description>
         <inputEntry id="UnaryTests_1hsw0dc">
-          <text></text>
+          <text>(count(Dryness_Wines) &gt;= 1) and (Dryness_Wines[1] != "")</text>
         </inputEntry>
         <inputEntry id="UnaryTests_0hbpe2o">
-          <text></text>
+          <text>(count(Tannin_Level_Wines) &gt;= 1) and (Tannin_Level_Wines[1] != "")</text>
         </inputEntry>
         <inputEntry id="UnaryTests_00l1x8a">
-          <text></text>
+          <text>(count(Taste_Wines) &gt;= 1) and (Taste_Wines[1] != "")</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_175iqws">
-          <text>if ( ( (count(Dryness_Wines) = 1) and (Dryness_Wines[1] = "")) and ((count(Tannin_Level_Wines) = 1) and (Tannin_Level_Wines[1] = "")) and ((count(Taste_Wines) = 1) and (Taste_Wines[1] = ""))) then Wines else (Dryness_Wines[list contains(Wines,item)][ if( (count(Tannin_Level_Wines) = 1) and (Tannin_Level_Wines[1] = "") ) then list contains(Wines,item) else list contains(Tannin_Level_Wines,item)])[ if( (count(Taste_Wines) = 1) and (Taste_Wines[1] = "") ) then list contains(Wines,item) else list contains(Taste_Wines,item) ]</text>
+          <text>(Wines[list contains(Dryness_Wines,item)][list contains(Tannin_Level_Wines,item)])[list contains(Taste_Wines,item)]</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1q7zsj7">
+        <description>include, none, include</description>
+        <inputEntry id="UnaryTests_0oy90c9">
+          <text>(count(Dryness_Wines) &gt;= 1) and (Dryness_Wines[1] != "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1umwt4v">
+          <text>(count(Tannin_Level_Wines) = 1) and (Tannin_Level_Wines[1] = "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qzau2f">
+          <text>(count(Taste_Wines) &gt;= 1) and (Taste_Wines[1] != "")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1fuqw30">
+          <text>Wines[list contains(Dryness_Wines,item)][list contains(Taste_Wines,item)]</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1oraubg">
+        <description>include, include, none</description>
+        <inputEntry id="UnaryTests_0q7v910">
+          <text>(count(Dryness_Wines) &gt;= 1) and (Dryness_Wines[1] != "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gmr2rh">
+          <text>(count(Tannin_Level_Wines) &gt;= 1) and (Tannin_Level_Wines[1] != "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0doik9o">
+          <text>(count(Taste_Wines) = 1) and (Taste_Wines[1] = "")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vp9rmy">
+          <text>Wines[list contains(Dryness_Wines,item)][list contains(Tannin_Level_Wines,item)]</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1yrc80j">
+        <description>none, include, include</description>
+        <inputEntry id="UnaryTests_1vmfyi6">
+          <text>(count(Dryness_Wines) = 1) and (Dryness_Wines[1] = "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h5tko4">
+          <text>(count(Tannin_Level_Wines) &gt;= 1) and (Tannin_Level_Wines[1] != "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_01tvygl">
+          <text>(count(Taste_Wines) &gt;= 1) and (Taste_Wines[1] != "")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1bu2m55">
+          <text>Wines[list contains(Tannin_Level_Wines,item)][list contains(Taste_Wines,item)]</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jksjp6">
+        <description>none, include, none</description>
+        <inputEntry id="UnaryTests_0y8pwom">
+          <text>(count(Dryness_Wines) = 1) and (Dryness_Wines[1] = "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0frzsns">
+          <text>(count(Tannin_Level_Wines) &gt;= 1) and (Tannin_Level_Wines[1] != "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eno0q7">
+          <text>(count(Taste_Wines) = 1) and (Taste_Wines[1] = "")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yomsmq">
+          <text>Wines[list contains(Tannin_Level_Wines,item)]</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vhsjq5">
+        <description>none, none, include</description>
+        <inputEntry id="UnaryTests_1937nsu">
+          <text>(count(Dryness_Wines) = 1) and (Dryness_Wines[1] = "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_09i5vys">
+          <text>(count(Tannin_Level_Wines) = 1) and (Tannin_Level_Wines[1] = "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mpp517">
+          <text>(count(Taste_Wines) &gt;= 1) and (Taste_Wines[1] != "")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1r4behm">
+          <text>Wines[list contains(Taste_Wines,item)]</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1bmxd8d">
+        <description>include, none, none</description>
+        <inputEntry id="UnaryTests_0jpht1f">
+          <text>(count(Dryness_Wines) &gt;= 1) and (Dryness_Wines[1] != "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d0fwkq">
+          <text>(count(Tannin_Level_Wines) = 1) and (Tannin_Level_Wines[1] = "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hdsu9d">
+          <text>(count(Taste_Wines) = 1) and (Taste_Wines[1] = "")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04e66zt">
+          <text>Wines[list contains(Dryness_Wines,item)]</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0myxc9g">
+        <description>none, none, none</description>
+        <inputEntry id="UnaryTests_0yvlhvz">
+          <text>(count(Dryness_Wines) = 1) and (Dryness_Wines[1] = "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1huawgm">
+          <text>(count(Tannin_Level_Wines) = 1) and (Tannin_Level_Wines[1] = "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kky92u">
+          <text>(count(Taste_Wines) = 1) and (Taste_Wines[1] = "")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qjwqdr">
+          <text>Wines</text>
         </outputEntry>
       </rule>
     </decisionTable>
@@ -1634,7 +1740,7 @@
           <text>"brunello","sangiovese","syrah","grenache","merlot","cabernet sauvignon","cabernet franc","pinot noir","carignan","chardonnay rose","vermentino","chardonnay","marsanne","trebbiano","crémant","riesling","moscato","palomino"</text>
         </inputValues>
       </input>
-      <output id="OutputClause_1pd9r5m" label="Exclude_Grape_Preferences" name="Exclude_Grape_Preferences" typeRef="string">
+      <output id="OutputClause_1pd9r5m" label="Exclude_Grape_Preferences" name="Exclude_Grape_Preferences" typeRef="string" biodi:width="266">
         <outputValues id="UnaryTests_0souewq">
           <text>"Brunello di Montalcino","Juline Châteauneuf-du-Pape","Pomerol Château de Salesl","Case Basse Sangiovese","Romanée-Saint","Aragone","Marsannay","Garrus Rosè","Corton-Charlemagne Grand Cru","Hermitage AOC","Sauternes","Trebbiano d'Abruzzo","Cremant d'Alsace","Coteau de la Beylesse","G-Max Reisling","Vajra Mosacto d'Asti","Occhio di pernice","Fino"</text>
         </outputValues>
