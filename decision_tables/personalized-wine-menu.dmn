@@ -1637,14 +1637,6 @@
           <text>"Garrus Rosè"</text>
         </outputEntry>
       </rule>
-      <rule id="DecisionRule_15w2z3b">
-        <inputEntry id="UnaryTests_1tseklj">
-          <text>"chardonnay"</text>
-        </inputEntry>
-        <outputEntry id="LiteralExpression_0cd813k">
-          <text>"Marsannay"</text>
-        </outputEntry>
-      </rule>
       <rule id="DecisionRule_1l2m49f">
         <inputEntry id="UnaryTests_0e4hcl6">
           <text>"chardonnay"</text>
@@ -1855,14 +1847,6 @@
         </inputEntry>
         <outputEntry id="LiteralExpression_1jxk3ps">
           <text>"Garrus Rosè"</text>
-        </outputEntry>
-      </rule>
-      <rule id="DecisionRule_1hqbhsj">
-        <inputEntry id="UnaryTests_0bqhnlz">
-          <text>"chardonnay"</text>
-        </inputEntry>
-        <outputEntry id="LiteralExpression_1tmvaut">
-          <text>"Marsannay"</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0lmtih2">

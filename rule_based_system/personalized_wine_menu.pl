@@ -252,9 +252,9 @@ ideal_weak_wine(sliced_beef, medium_red).
 ideal_weak_wine(strawberry_cheesecake, dessert).
 ideal_weak_wine(strawberry_cheesecake, sparkling).
 
-% predicates
+% rules
 wine_checking(W,C,R,T,TL,D) :- wine(W), 
-    region_belongs(R,C), wine_origin(W,R), taste_of(W,T), 
+    region_belongs(R,C), wine_from(R,W), taste_of(W,T), 
     tannin_of(W,TL), dryness_of(W,D).
 
 is_ideal_strong_wine(W,M) :- ideal_strong_wine(M,CAT), category_of(W,CAT), wine_category(CAT).
@@ -263,26 +263,24 @@ is_ideal_weak_wine(W,M) :- ideal_weak_wine(M,CAT), category_of(W,CAT), wine_cate
 
 region_belongs(R,C) :- country(C), region(R), region_of(C,R).
 
-wine_origin(W,R) :- wine_from(R,W).
-
 include_wine_by_grape(W,IG) :- IG=[] -> (grapes_of(W,_));
     grapes_of(W,GS),is_in_list(G,IG), is_in_list(G,GS).
 
 exclude_wine_by_grape(W,EG) :- grapes_of(W,GS), list_intersection(GS,EG,NW), 
     not(is_in_list(G,NW)), is_in_list(G,GS).
 
+suggested_general_wines(W,M,IG,EG,C,R,T,TL,D) :-
+    wine_checking(W,C,R,T,TL,D),
+    include_wine_by_grape(W,IG),
+    exclude_wine_by_grape(W,EG),
+    meal(M).
+
 suggested_strong_wines(STRONG,M,IG,EG,C,R,T,TL,D) :-
-	wine_checking(STRONG,C,R,T,TL,D),
-    include_wine_by_grape(STRONG,IG),
-    exclude_wine_by_grape(STRONG,EG),
-    meal(M),
+	suggested_general_wines(STRONG,M,IG,EG,C,R,T,TL,D),
     is_ideal_strong_wine(STRONG,M).
 
 suggested_weak_wines(WEAK,M,IG,EG,C,R,T,TL,D) :-
-	wine_checking(WEAK,C,R,T,TL,D),
-    include_wine_by_grape(WEAK,IG),
-	exclude_wine_by_grape(WEAK,EG),
-    meal(M),
+	suggested_general_wines(WEAK,M,IG,EG,C,R,T,TL,D),
     is_ideal_weak_wine(WEAK,M).
 
 % suggested_wines(STRONG,WEAK,roast_chicken_with_herbs,[],[],C,R,T,TL,D)
