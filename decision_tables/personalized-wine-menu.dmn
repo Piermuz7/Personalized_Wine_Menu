@@ -1412,7 +1412,7 @@
           <text>Geo_Wine_Preferences</text>
         </inputExpression>
       </input>
-      <output id="OutputClause_165rq8t" label="Suggested_Wines" name="Suggested_Wines" typeRef="" biodi:width="440" />
+      <output id="OutputClause_165rq8t" label="Suggested_Wines" name="Suggested_Wines" typeRef="" biodi:width="319" />
       <rule id="DecisionRule_1454jgt">
         <description></description>
         <inputEntry id="UnaryTests_0xk2ln0">
@@ -1431,7 +1431,7 @@
           <text></text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0jq10kb">
-          <text>((union(Meal_Strong_Wines,Meal_Weak_Wines))[ list contains(Grape_Wine_Preferences,item)][ list contains(Flavor_Wine_Preferences,item)])[list contains(Geo_Wine_Preferences,item)]</text>
+          <text>((union(Meal_Strong_Wines,Meal_Weak_Wines))[list contains(Grape_Wine_Preferences,item)][ list contains(Flavor_Wine_Preferences,item)])[list contains(Geo_Wine_Preferences,item)]</text>
         </outputEntry>
       </rule>
     </decisionTable>
