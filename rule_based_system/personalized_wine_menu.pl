@@ -348,8 +348,6 @@ weak_category_of(poultry, medium_red).
 weak_category_of(poultry, rose).
 weak_category_of(poultry, light_white).
 weak_category_of(poultry, sparkling).
-weak_category_of(poultry, medium_red).
-weak_category_of(poultry, rose).
 weak_category_of(roasted, medium_red).
 weak_category_of(roasted, light_red).
 weak_category_of(roasted, rose).
