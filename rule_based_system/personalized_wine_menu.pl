@@ -1,9 +1,21 @@
-% list operation (utility for grape inclusion/exclusion)
+% list operations
+% * list membership (utility for grape inclusion/exclusion)
 is_in_list(H,[H|_]).
 is_in_list(H,[_|T]) :- is_in_list(H,T).
 list_intersection([], _, []).
 list_intersection([H|T], L2, [H|L1]) :- is_in_list(H,L2), !, list_intersection(T,L2,L1).
 list_intersection([_|T],L2,L1) :- list_intersection(T,L2,L1).
+% * concatenation between lists including duplicates (utility for meal derivation from ingredients)
+list_concat([],L,L).
+list_concat([X1|L1],L2,[X1|L3]) :- list_concat(L1,L2,L3).
+% * count list occurrencies (utility for meal derivation from ingredients)
+list_count([],_X,0). %_X to suppress Singleton Warning
+list_count([X|T],X,Y):- list_count(T,X,Z), Y is 1+Z.
+list_count([X1|T],X,Z):- X1\=X, list_count(T,X,Z).
+list_countall(L,X,C) :-
+    sort(L,L1),
+    member(X,L1),
+    list_count(L,X,C).
 
 % countries
 country(france).
@@ -225,6 +237,25 @@ dryness_of(sauternes, not_dry).
 dryness_of(trebbiano_d_abruzzo, dry).
 dryness_of(vajra_mosacto_d_asti, dry).
 
+% ingredients
+ingredient(fish).
+ingredient(herbs).
+ingredient(pork).
+ingredient(saulted_or_fried).
+ingredient(black_pepper).
+ingredient(white_starches).
+ingredient(alliums).
+ingredient(red_pepper).
+ingredient(grilled).
+ingredient(smoked).
+ingredient(red_meat).
+ingredient(root_vegetables_and_squash).
+ingredient(soft_cheese_and_cream).
+ingredient(poultry).
+ingredient(roasted).
+ingredient(fruit_and_barries).
+
+
 % meals
 meal(fried_bass_with_herbs).
 meal(pulled_pork).
@@ -232,35 +263,146 @@ meal(pumpkin_risotto).
 meal(roast_chicken_with_herbs).
 meal(sliced_beef).
 meal(strawberry_cheesecake).
+meal(pumpkin_risotto).
 
-% ideal strong wines
-ideal_strong_wine(fried_bass_with_herbs, light_white).
-ideal_strong_wine(pulled_pork, bold_red).
-ideal_strong_wine(pulled_pork, medium_red).
-ideal_strong_wine(pumpkin_risotto, rich_white).
-ideal_strong_wine(pumpkin_risotto, rose).
-ideal_strong_wine(roast_chicken_with_herbs, light_red).
-ideal_strong_wine(sliced_beef, bold_red).
-ideal_strong_wine(strawberry_cheesecake, sweet_white).
+% meal ingredients
+ingredient_of(fried_bass_with_herbs, [fish,herbs,saulted_or_fried]).
+ingredient_of(pulled_pork, [pork,black_pepper,white_starches,alliums,red_pepper,grilled,smoked]).
+ingredient_of(sliced_beef, [red_meat,grilled]).
+ingredient_of(pumpkin_risotto, [white_starches,root_vegetables_and_squash,soft_cheese_and_cream]).
+ingredient_of(roast_chicken_with_herbs, [poultry,herbs,roasted]).
+ingredient_of(strawberry_cheesecake, [fruit_and_barries]).
 
-% ideal weak wines
-ideal_weak_wine(fried_bass_with_herbs, rich_white).
-ideal_weak_wine(pumpkin_risotto, sweet_white).
-ideal_weak_wine(roast_chicken_with_herbs, medium_red).
-ideal_weak_wine(roast_chicken_with_herbs, rose).
-ideal_weak_wine(sliced_beef, medium_red).
-ideal_weak_wine(strawberry_cheesecake, dessert).
-ideal_weak_wine(strawberry_cheesecake, sparkling).
+% ingredients strong categories
+strong_category_of(fish, light_white).
+strong_category_of(herbs, light_white).
+strong_category_of(saulted_or_fried, light_red).
+strong_category_of(black_pepper, bold_red).
+strong_category_of(pork, medium_red).
+strong_category_of(red_pepper, medium_red).
+strong_category_of(alliums, medium_red).
+strong_category_of(grilled, bold_red).
+strong_category_of(smoked, medium_red).
+strong_category_of(red_meat, bold_red).
+strong_category_of(root_vegetables_and_squash,rose).
+strong_category_of(soft_cheese_and_cream, light_red).
+strong_category_of(soft_cheese_and_cream, rich_white).
+strong_category_of(poultry, light_red).
+strong_category_of(poultry, rich_white).
+strong_category_of(roasted, bold_red).
+strong_category_of(fruit_and_barries, sweet_white).
+
+% ingredients weak categories
+weak_category_of(fish, rich_white).
+weak_category_of(fish, sparkling).
+weak_category_of(herbs, rich_white).
+weak_category_of(herbs, rose).
+weak_category_of(herbs, light_red).
+weak_category_of(saulted_or_fried, rose).
+weak_category_of(saulted_or_fried, rich_white).
+weak_category_of(saulted_or_fried, light_white).
+weak_category_of(saulted_or_fried, sparkling).
+weak_category_of(pork, bold_red).
+weak_category_of(pork, rose).
+weak_category_of(pork, sparkling).
+weak_category_of(black_pepper, medium_red).
+weak_category_of(white_starches, bold_red).
+weak_category_of(white_starches, medium_red).
+weak_category_of(white_starches, light_red).
+weak_category_of(white_starches, rose).
+weak_category_of(white_starches, rich_white).
+weak_category_of(white_starches, light_white).
+weak_category_of(white_starches, sparkling).
+weak_category_of(white_starches, sweet_white).
+weak_category_of(white_starches, dessert).
+weak_category_of(alliums, bold_red).
+weak_category_of(alliums, light_red).
+weak_category_of(alliums, rose).
+weak_category_of(alliums, rich_white).
+weak_category_of(alliums, light_white).
+weak_category_of(alliums, sparkling).
+weak_category_of(alliums, sweet_white).
+weak_category_of(red_pepper, bold_red).
+weak_category_of(red_pepper, rose).
+weak_category_of(red_pepper, light_white).
+weak_category_of(red_pepper, sparkling).
+weak_category_of(red_pepper, sweet_white).
+weak_category_of(grilled, medium_red).
+weak_category_of(grilled, light_red).
+weak_category_of(grilled, sparkling).
+weak_category_of(grilled, sweet_white).
+weak_category_of(smoked, bold_red).
+weak_category_of(smoked, light_red).
+weak_category_of(smoked, rose).
+weak_category_of(smoked, sparkling).
+weak_category_of(smoked, dessert).
+weak_category_of(red_meat, medium_red).
+weak_category_of(root_vegetables_and_squash, rich_white).
+weak_category_of(root_vegetables_and_squash, sweet_white).
+weak_category_of(soft_cheese_and_cream, medium_red).
+weak_category_of(soft_cheese_and_cream, rose).
+weak_category_of(soft_cheese_and_cream, light_white).
+weak_category_of(soft_cheese_and_cream, sparkling).
+weak_category_of(soft_cheese_and_cream, dessert).
+weak_category_of(soft_cheese_and_cream, sweet_white).
+weak_category_of(poultry, medium_red).
+weak_category_of(poultry, rose).
+weak_category_of(poultry, light_white).
+weak_category_of(poultry, sparkling).
+weak_category_of(poultry, medium_red).
+weak_category_of(poultry, light_red).
+weak_category_of(poultry, rose).
+weak_category_of(fruit_and_barries, sparkling).
+weak_category_of(fruit_and_barries, dessert).
 
 % rules
 wine_checking(W,C,R,T,TL,D) :- wine(W), 
     region_belongs(R,C), wine_from(R,W), taste_of(W,T), 
     tannin_of(W,TL), dryness_of(W,D).
 
-is_ideal_strong_wine(W,M) :- ideal_strong_wine(M,CAT), category_of(W,CAT), wine_category(CAT).
+ideal_strong_category(M, C) :-
+    ingredient_of(M, I),
+    ingredient(ING), is_in_list(ING,I),
+    strong_category_of(ING,C).
 
-is_ideal_weak_wine(W,M) :- ideal_weak_wine(M,CAT), category_of(W,CAT), wine_category(CAT).
+ideal_weak_category(M, C) :-
+    ingredient_of(M, I),
+    is_in_list(ING,I),
+    weak_category_of(ING,C).
 
+get_strongs(M,R) :- bagof(
+               X, ideal_strong_category(M, X),
+               R).
+
+get_weaks(M,R) :- bagof(
+               X, ideal_weak_category(M, X),
+               R).
+
+ideal_strong_categories(M,C) :- 
+    setof(CAT,(get_strongs(M,R1),
+		  get_weaks(M,R2),
+		  list_concat(R1,R2,R),
+              wine_category(CAT), is_in_list(CAT,R1),is_in_list(CAT,R),
+              list_countall(R,CAT,O),
+              ingredient_of(M,I),
+              length(I,L), O >= L),C).
+
+ideal_weak_categories(M,C) :- 
+    setof(CAT, 
+          (bagof(
+               X, ideal_weak_category(M, X),
+               R),
+              wine_category(CAT), is_in_list(CAT,R),
+              list_countall(R,CAT,L),
+              ingredient_of(M,I),
+              length(I,L)),
+          C).
+
+is_ideal_strong_wine(W,M) :-  wine_category(CAT), ideal_strong_categories(M,C),
+    is_in_list(CAT,C), category_of(W,CAT).
+
+is_ideal_weak_wine(W,M) :- wine_category(CAT), ideal_weak_categories(M,C),
+    is_in_list(CAT,C), category_of(W,CAT).
 region_belongs(R,C) :- country(C), region(R), region_of(C,R).
 
 include_wine_by_grape(W,IG) :- IG=[] -> (grapes_of(W,_));
@@ -289,5 +431,7 @@ suggested_weak_wines(WEAK,M,IG,EG,C,R,T,TL,D) :-
 % there are no preferences about inclusion and exclusion of grapes.
 
 suggested_wines(STRONG,WEAK,M,IG,EG,C,R,T,TL,D) :-
-    suggested_strong_wines(STRONG,M,IG,EG,C,R,T,TL,D);
-    suggested_weak_wines(WEAK,M,IG,EG,C,R,T,TL,D).
+    setof(STRONG, suggested_strong_wines(STRONG,M,IG,EG,C,R,T,TL,D), STRONG);
+    setof(WEAK, suggested_weak_wines(WEAK,M,IG,EG,C,R,T,TL,D), WEAK).
+
+
