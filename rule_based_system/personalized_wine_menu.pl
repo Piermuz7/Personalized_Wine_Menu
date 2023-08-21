@@ -9,13 +9,12 @@ list_intersection([_|T],L2,L1) :- list_intersection(T,L2,L1).
 list_concat([],L,L).
 list_concat([X1|L1],L2,[X1|L3]) :- list_concat(L1,L2,L3).
 % * count list occurrencies (utility for meal derivation from ingredients)
-list_count([],_X,0). %_X to suppress Singleton Warning
-list_count([X|T],X,Y):- list_count(T,X,Z), Y is 1+Z.
-list_count([X1|T],X,Z):- X1\=X, list_count(T,X,Z).
-list_countall(L,X,C) :-
-    sort(L,L1),
-    member(X,L1),
-    list_count(L,X,C).
+list_count([],_H,0). %_H to suppress Singleton Warning
+list_count([H|T],H,C):- list_count(T,H,O), C is 1+O.
+list_count([H1|T],H,C):- H1\=H, list_count(T,H,C).
+list_countall(L,H,C) :-
+    is_in_list(H,L),
+    list_count(L,H,C).
 
 % countries
 country(france).
@@ -119,7 +118,7 @@ wine(vajra_mosacto_d_asti).
 
 % wine grapes
 grapes_of(aragone, [carignan]).
-grapes_of(brunello_di_montalcino, [brunello,sangiovese]).
+grapes_of(brunello_di_montalcino, [brunello, sangiovese]).
 grapes_of(case_basse_sangiovese, [sangiovese]).
 grapes_of(corton_charlemagne_grand_cru, [chardonnay]).
 grapes_of(coteau_de_la_beylesse, [marsanne]).
@@ -128,10 +127,10 @@ grapes_of(fino, [palomino]).
 grapes_of(g_max_reisling, [riesling]).
 grapes_of(garrus_rose, [vermentino]).
 grapes_of(hermitage_aoc, [marsanne]).
-grapes_of(juline_chateauneuf_du_pape, [grenache,syrah]).
+grapes_of(juline_chateauneuf_du_pape, [grenache, syrah]).
 grapes_of(marsannay, [chardonnay_rose]).
-grapes_of(occhio_di_pernice, [sangiovese,syrah]).
-grapes_of(pomerol_chateau_de_salesl, [cabernet_franc,cabernet_sauvignon,merlot]).
+grapes_of(occhio_di_pernice, [sangiovese, syrah]).
+grapes_of(pomerol_chateau_de_salesl, [cabernet_franc, cabernet_sauvignon, merlot]).
 grapes_of(romanee_saint, [pinot_noir]).
 grapes_of(sauternes, [chardonnay]).
 grapes_of(trebbiano_d_abruzzo, [trebbiano]).
@@ -152,7 +151,7 @@ wine_from(vaucluse, juline_chateauneuf_du_pape).
 wine_from(burgundy, marsannay).
 wine_from(tuscany, occhio_di_pernice).
 wine_from(bordeaux, pomerol_chateau_de_salesl).
-wine_from(vosne_romanee,romanee_saint).
+wine_from(vosne_romanee, romanee_saint).
 wine_from(bordeaux, sauternes).
 wine_from(abruzzi, trebbiano_d_abruzzo).
 wine_from(piemonte, vajra_mosacto_d_asti).
@@ -255,7 +254,6 @@ ingredient(poultry).
 ingredient(roasted).
 ingredient(fruit_and_barries).
 
-
 % meals
 meal(fried_bass_with_herbs).
 meal(pulled_pork).
@@ -266,11 +264,11 @@ meal(strawberry_cheesecake).
 meal(pumpkin_risotto).
 
 % meal ingredients
-ingredient_of(fried_bass_with_herbs, [fish,herbs,saulted_or_fried]).
-ingredient_of(pulled_pork, [pork,black_pepper,white_starches,alliums,red_pepper,grilled,smoked]).
-ingredient_of(sliced_beef, [red_meat,grilled]).
-ingredient_of(pumpkin_risotto, [white_starches,root_vegetables_and_squash,soft_cheese_and_cream]).
-ingredient_of(roast_chicken_with_herbs, [poultry,herbs,roasted]).
+ingredient_of(fried_bass_with_herbs, [fish, herbs, saulted_or_fried]).
+ingredient_of(pulled_pork, [pork, black_pepper, white_starches, alliums, red_pepper, grilled, smoked]).
+ingredient_of(sliced_beef, [red_meat, grilled]).
+ingredient_of(pumpkin_risotto, [white_starches, root_vegetables_and_squash, soft_cheese_and_cream]).
+ingredient_of(roast_chicken_with_herbs, [poultry, herbs, roasted]).
 ingredient_of(strawberry_cheesecake, [fruit_and_barries]).
 
 % ingredients strong categories
@@ -284,7 +282,7 @@ strong_category_of(alliums, medium_red).
 strong_category_of(grilled, bold_red).
 strong_category_of(smoked, medium_red).
 strong_category_of(red_meat, bold_red).
-strong_category_of(root_vegetables_and_squash,rose).
+strong_category_of(root_vegetables_and_squash, rose).
 strong_category_of(soft_cheese_and_cream, light_red).
 strong_category_of(soft_cheese_and_cream, rich_white).
 strong_category_of(poultry, light_red).
@@ -352,6 +350,9 @@ weak_category_of(poultry, sparkling).
 weak_category_of(poultry, medium_red).
 weak_category_of(poultry, light_red).
 weak_category_of(poultry, rose).
+weak_category_of(roasted, medium_red).
+weak_category_of(roasted, light_red).
+weak_category_of(roasted, rose).
 weak_category_of(fruit_and_barries, sparkling).
 weak_category_of(fruit_and_barries, dessert).
 
@@ -360,37 +361,44 @@ wine_checking(W,C,R,T,TL,D) :- wine(W),
     region_belongs(R,C), wine_from(R,W), taste_of(W,T), 
     tannin_of(W,TL), dryness_of(W,D).
 
-ideal_strong_category(M, C) :-
-    ingredient_of(M, I),
-    ingredient(ING), is_in_list(ING,I),
+ideal_strong_category(M,C) :-
+    ingredient_of(M,I),
+    is_in_list(ING,I),
     strong_category_of(ING,C).
 
-ideal_weak_category(M, C) :-
-    ingredient_of(M, I),
+ideal_weak_category(M,C) :-
+    ingredient_of(M,I),
     is_in_list(ING,I),
     weak_category_of(ING,C).
 
 get_strongs(M,R) :- bagof(
-               X, ideal_strong_category(M, X),
+               X, 
+               ideal_strong_category(M,X),
                R).
 
 get_weaks(M,R) :- bagof(
-               X, ideal_weak_category(M, X),
+               X,
+               ideal_weak_category(M,X),
                R).
 
 ideal_strong_categories(M,C) :- 
-    setof(CAT,(get_strongs(M,R1),
+    setof(CAT,
+          (get_strongs(M,R1),
 		  get_weaks(M,R2),
 		  list_concat(R1,R2,R),
-              wine_category(CAT), is_in_list(CAT,R1),is_in_list(CAT,R),
+              wine_category(CAT),
+              is_in_list(CAT,R1), % check if is a strong category
+              is_in_list(CAT,R), % and is in concatenation list
               list_countall(R,CAT,O),
               ingredient_of(M,I),
-              length(I,L), O >= L),C).
+              length(I,L), O >= L),
+          C).
 
 ideal_weak_categories(M,C) :- 
     setof(CAT, 
           (bagof(
-               X, ideal_weak_category(M, X),
+               X,
+               ideal_weak_category(M,X),
                R),
               wine_category(CAT), is_in_list(CAT,R),
               list_countall(R,CAT,L),
@@ -403,6 +411,7 @@ is_ideal_strong_wine(W,M) :-  wine_category(CAT), ideal_strong_categories(M,C),
 
 is_ideal_weak_wine(W,M) :- wine_category(CAT), ideal_weak_categories(M,C),
     is_in_list(CAT,C), category_of(W,CAT).
+
 region_belongs(R,C) :- country(C), region(R), region_of(C,R).
 
 include_wine_by_grape(W,IG) :- IG=[] -> (grapes_of(W,_));
@@ -433,5 +442,3 @@ suggested_weak_wines(WEAK,M,IG,EG,C,R,T,TL,D) :-
 suggested_wines(STRONG,WEAK,M,IG,EG,C,R,T,TL,D) :-
     setof(STRONG, suggested_strong_wines(STRONG,M,IG,EG,C,R,T,TL,D), STRONG);
     setof(WEAK, suggested_weak_wines(WEAK,M,IG,EG,C,R,T,TL,D), WEAK).
-
-
