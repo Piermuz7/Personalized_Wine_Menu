@@ -252,7 +252,7 @@ ingredient(root_vegetables_and_squash).
 ingredient(soft_cheese_and_cream).
 ingredient(poultry).
 ingredient(roasted).
-ingredient(fruit_and_barries).
+ingredient(fruit_and_berries).
 
 % meals
 meal(fried_bass_with_herbs).
@@ -269,7 +269,7 @@ ingredient_of(pulled_pork, [pork, black_pepper, white_starches, alliums, red_pep
 ingredient_of(sliced_beef, [red_meat, grilled]).
 ingredient_of(pumpkin_risotto, [white_starches, root_vegetables_and_squash, soft_cheese_and_cream]).
 ingredient_of(roast_chicken_with_herbs, [poultry, herbs, roasted]).
-ingredient_of(strawberry_cheesecake, [fruit_and_barries]).
+ingredient_of(strawberry_cheesecake, [fruit_and_berries]).
 
 % ingredients strong categories
 strong_category_of(fish, light_white).
@@ -288,7 +288,7 @@ strong_category_of(soft_cheese_and_cream, rich_white).
 strong_category_of(poultry, light_red).
 strong_category_of(poultry, rich_white).
 strong_category_of(roasted, bold_red).
-strong_category_of(fruit_and_barries, sweet_white).
+strong_category_of(fruit_and_berries, sweet_white).
 
 % ingredients weak categories
 weak_category_of(fish, rich_white).
@@ -296,6 +296,7 @@ weak_category_of(fish, sparkling).
 weak_category_of(herbs, rich_white).
 weak_category_of(herbs, rose).
 weak_category_of(herbs, light_red).
+weak_category_of(herbs, medium_red).
 weak_category_of(saulted_or_fried, rose).
 weak_category_of(saulted_or_fried, rich_white).
 weak_category_of(saulted_or_fried, light_white).
@@ -348,13 +349,12 @@ weak_category_of(poultry, rose).
 weak_category_of(poultry, light_white).
 weak_category_of(poultry, sparkling).
 weak_category_of(poultry, medium_red).
-weak_category_of(poultry, light_red).
 weak_category_of(poultry, rose).
 weak_category_of(roasted, medium_red).
 weak_category_of(roasted, light_red).
 weak_category_of(roasted, rose).
-weak_category_of(fruit_and_barries, sparkling).
-weak_category_of(fruit_and_barries, dessert).
+weak_category_of(fruit_and_berries, sparkling).
+weak_category_of(fruit_and_berries, dessert).
 
 % rules
 wine_checking(W,C,R,T,TL,D) :- wine(W), 
