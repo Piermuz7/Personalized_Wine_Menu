@@ -394,10 +394,7 @@ ideal_strong_categories(M,C) :-
 
 ideal_weak_categories(M,C) :- 
     setof(CAT, 
-          (bagof(
-               X,
-               ideal_weak_category(M,X),
-               R),
+          (get_weaks(M,R),
               wine_category(CAT), is_in_list(CAT,R),
               list_countall(R,CAT,L),
               ingredient_of(M,I),
@@ -413,7 +410,7 @@ is_ideal_weak_wine(W,M) :- wine_category(CAT), ideal_weak_categories(M,C),
 region_belongs(R,C) :- country(C), region(R), region_of(C,R).
 
 include_wine_by_grape(W,IG) :- IG=[] -> (grapes_of(W,_));
-    grapes_of(W,GS),is_in_list(G,IG), is_in_list(G,GS).
+    grapes_of(W,GS), is_in_list(G,IG), is_in_list(G,GS).
 
 exclude_wine_by_grape(W,EG) :- grapes_of(W,GS), list_intersection(GS,EG,NW), 
     not(is_in_list(G,NW)), is_in_list(G,GS).
