@@ -70,6 +70,16 @@
     
 
 
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_ideal_category -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_ideal_category">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_ideal_strong -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_ideal_strong">
@@ -209,6 +219,14 @@
     
 
 
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#bold_red -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#bold_red">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
@@ -219,6 +237,14 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#country">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#geographical-area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#dessert -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#dessert">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
     </owl:Class>
     
 
@@ -249,9 +275,33 @@
     
 
 
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#light_red -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#light_red">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#light_white -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#light_white">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal"/>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#medium_red -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#medium_red">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:Class>
     
 
 
@@ -259,6 +309,38 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#region">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#geographical-area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#rich_white -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#rich_white">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#rose -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#rose">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#sparkling -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#sparkling">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#sweet_white -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#sweet_white">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
     </owl:Class>
     
 
@@ -285,7 +367,7 @@
     <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_bold_red -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_bold_red">
-        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#bold_red"/>
     </owl:NamedIndividual>
     
 
@@ -293,7 +375,7 @@
     <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_dessert -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_dessert">
-        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#dessert"/>
     </owl:NamedIndividual>
     
 
@@ -301,7 +383,7 @@
     <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_light_red -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_light_red">
-        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#light_red"/>
     </owl:NamedIndividual>
     
 
@@ -309,7 +391,7 @@
     <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_light_white -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_light_white">
-        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#light_white"/>
     </owl:NamedIndividual>
     
 
@@ -317,7 +399,7 @@
     <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_medium_red -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_medium_red">
-        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#medium_red"/>
     </owl:NamedIndividual>
     
 
@@ -325,7 +407,7 @@
     <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_rich_white -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_rich_white">
-        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#rich_white"/>
     </owl:NamedIndividual>
     
 
@@ -333,7 +415,7 @@
     <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_rose -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_rose">
-        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#rose"/>
     </owl:NamedIndividual>
     
 
@@ -341,7 +423,7 @@
     <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_sparkling -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_sparkling">
-        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#sparkling"/>
     </owl:NamedIndividual>
     
 
@@ -349,7 +431,7 @@
     <!-- http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_sweet_white -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category_sweet_white">
-        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#category"/>
+        <rdf:type rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#sweet_white"/>
     </owl:NamedIndividual>
     
 
@@ -976,14 +1058,110 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/r">
+    <rdf:Description rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/m">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
     <rdf:Description rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/c">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/r">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
     <rdf:Description rdf:about="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/w">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S4</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/m"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_ideal_weak"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/m"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/c"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#recommendation"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/c"/>
+                        <swrl:argument2>weak</swrl:argument2>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_ideal_category"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/m"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/c"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment></rdfs:comment>
+        <rdfs:label>S1</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_region_of"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/r"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/c"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_country_of"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/c"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
     </rdf:Description>
     <rdf:Description>
         <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
@@ -1035,20 +1213,32 @@
     <rdf:Description>
         <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
         <rdfs:comment></rdfs:comment>
-        <rdfs:label>S1</rdfs:label>
+        <rdfs:label>S3</rdfs:label>
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
         <swrl:body>
             <rdf:Description>
                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
                 <rdf:first>
                     <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_region_of"/>
-                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/r"/>
-                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/c"/>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#meal"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/m"/>
                     </rdf:Description>
                 </rdf:first>
-                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_ideal_strong"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/m"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/c"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
             </rdf:Description>
         </swrl:body>
         <swrl:head>
@@ -1056,13 +1246,26 @@
                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
                 <rdf:first>
                     <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_country_of"/>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#recommendation"/>
                         <swrl:argument1 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/c"/>
-                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/r"/>
+                        <swrl:argument2>strong</swrl:argument2>
                     </rdf:Description>
                 </rdf:first>
-                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023#is_ideal_category"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/m"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/piermichele.rosati-marco.serenelli/kebi2023/c"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
             </rdf:Description>
         </swrl:head>
     </rdf:Description>
