@@ -73,16 +73,32 @@ grape(syrah).
 grape(trebbiano).
 grape(vermentino).
 
+% wine colors
+wine_color(red).
+wine_color(rose).
+wine_color(white).
+
 % wine categories
 wine_category(bold_red).
 wine_category(medium_red).
 wine_category(light_red).
-wine_category(rose).
+wine_category(rose_).
 wine_category(rich_white).
 wine_category(light_white).
 wine_category(sparkling).
 wine_category(sweet_white).
 wine_category(dessert).
+
+% wine color categories
+wine_color_of(bold_red, red).
+wine_color_of(medium_red, red).
+wine_color_of(light_red, red).
+wine_color_of(rose_, rose).
+wine_color_of(rich_white, white).
+wine_color_of(light_white, white).
+wine_color_of(sparkling, white).
+wine_color_of(sweet_white, white).
+wine_color_of(dessert, red).
 
 % tastes
 taste(bold).
@@ -355,9 +371,12 @@ weak_category_of(fruit_and_berries, sparkling).
 weak_category_of(fruit_and_berries, dessert).
 
 % rules
-wine_checking(W,C,R,T,TL,D) :- wine(W), 
-    region_belongs(R,C), wine_from(R,W), taste_of(W,T), 
-    tannin_of(W,TL), dryness_of(W,D).
+wine_checking(W,IC,EC,IR,ER,ICOL,ECOL,T,TL,D) :- wine(W), 
+    region_belongs(IR,IC), exclude_wine_by_country(W,EC), exclude_wine_by_region(W,ER),
+    wine_from(IR,W), 
+    wine_category(CAT), wine_color_of(CAT,ICOL), 
+    ICOL \== ECOL, category_of(W,CAT),
+    taste_of(W,T), tannin_of(W,TL), dryness_of(W,D).
 
 ideal_strong_category(M,C) :-
     ingredient_of(M,I),
@@ -409,31 +428,42 @@ is_ideal_weak_wine(W,M) :- wine_category(CAT), ideal_weak_categories(M,C),
 
 region_belongs(R,C) :- country(C), region(R), region_of(C,R).
 
+exclude_wine_by_country(W,EC) :- wine_from(R,W), region_belongs(R,C),
+    EC \== C.
+exclude_wine_by_region(W,ER) :- wine_from(R,W),
+    ER \== R.
+
 include_wine_by_grape(W,IG) :- IG=[] -> (grapes_of(W,_));
     grapes_of(W,GS), is_in_list(G,IG), is_in_list(G,GS).
 
 exclude_wine_by_grape(W,EG) :- grapes_of(W,GS), list_intersection(GS,EG,NW), 
     not(is_in_list(G,NW)), is_in_list(G,GS).
 
-suggested_general_wines(W,M,IG,EG,C,R,T,TL,D) :-
-    wine_checking(W,C,R,T,TL,D),
+suggested_general_wines(W,M,IG,EG,C,EC,R,ER,COL,ECOL,T,TL,D) :-
+    wine_checking(W,C,EC,R,ER,COL,ECOL,T,TL,D),
     include_wine_by_grape(W,IG),
     exclude_wine_by_grape(W,EG),
     meal(M).
 
-suggested_strong_wines(STRONG,M,IG,EG,C,R,T,TL,D) :-
-	suggested_general_wines(STRONG,M,IG,EG,C,R,T,TL,D),
+suggested_strong_wines(STRONG,M,IG,EG,C,EC,R,ER,COL,ECOL,T,TL,D) :-
+	suggested_general_wines(STRONG,M,IG,EG,C,EC,R,ER,COL,ECOL,T,TL,D),
     is_ideal_strong_wine(STRONG,M).
 
-suggested_weak_wines(WEAK,M,IG,EG,C,R,T,TL,D) :-
-	suggested_general_wines(WEAK,M,IG,EG,C,R,T,TL,D),
+suggested_weak_wines(WEAK,M,IG,EG,C,EC,R,ER,COL,ECOL,T,TL,D) :-
+	suggested_general_wines(WEAK,M,IG,EG,C,EC,R,ER,COL,ECOL,T,TL,D),
     is_ideal_weak_wine(WEAK,M).
 
-% suggested_wines(STRONG,WEAK,roast_chicken_with_herbs,[],[],C,R,T,TL,D)
+% suggested_wines(STRONG,WEAK,roast_chicken_with_herbs,[],[],IC,EC,IR,ER,ICOL,ECOL,T,TL,D)
 % NOTE: M, the meal is needed.
 % IG, Include Grape and EG, Exclude Grape should be empty lists [], [] if
 % there are no preferences about inclusion and exclusion of grapes.
+%
+% IC: Include Country, EC: Exclude Country
+% IR: Include Region, ER: Exclude Region
+% ICOL: Include Color, ECOL: Exclude Color
+% T: Taste, TL: Tannin Level, D: Dryness. To negate one of these: bold/light, tannic/less tannic, dry/not dry
+%
 
-suggested_wines(STRONG,WEAK,M,IG,EG,C,R,T,TL,D) :-
-    setof(STRONG, suggested_strong_wines(STRONG,M,IG,EG,C,R,T,TL,D), STRONG);
-    setof(WEAK, suggested_weak_wines(WEAK,M,IG,EG,C,R,T,TL,D), WEAK).
+suggested_wines(STRONG,WEAK,M,IG,EG,IC,EC,IR,ER,ICOL,ECOL,T,TL,D) :-
+    setof(STRONG, suggested_strong_wines(STRONG,M,IG,EG,IC,EC,IR,ER,ICOL,ECOL,T,TL,D), STRONG);
+    setof(WEAK, suggested_weak_wines(WEAK,M,IG,EG,IC,EC,IR,ER,ICOL,ECOL,T,TL,D), WEAK).

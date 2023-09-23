@@ -697,19 +697,19 @@
     </literalExpression>
   </decision>
   <decision id="Decision_17nosvj" name="Geographic_Wine_Preferences">
-    <informationRequirement id="InformationRequirement_0yditpu">
-      <requiredDecision href="#Decision_167pnfv" />
-    </informationRequirement>
     <informationRequirement id="InformationRequirement_1t8sk37">
       <requiredDecision href="#Decision_0d5k5aa" />
     </informationRequirement>
-    <informationRequirement id="InformationRequirement_1alt2u5">
+    <informationRequirement id="InformationRequirement_1b58jzw">
+      <requiredDecision href="#Decision_1th8z4k" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0vlml4l">
       <requiredDecision href="#Decision_0cdk94i" />
     </informationRequirement>
     <decisionTable id="DecisionTable_1dcm46f">
-      <input id="InputClause_18uzry4" label="Country_Wines">
+      <input id="InputClause_18uzry4" label="Country_Wine_Preferences" biodi:width="224">
         <inputExpression id="LiteralExpression_18kl3nu" typeRef="string">
-          <text>Country_Wines</text>
+          <text>Country_Wine_Preferences</text>
         </inputExpression>
       </input>
       <input id="InputClause_0ziubt5" label="Region_Wine_Preferences" biodi:width="269">
@@ -721,7 +721,7 @@
       <rule id="DecisionRule_0d23kbi">
         <description>no country, no region</description>
         <inputEntry id="UnaryTests_1g5yvrh">
-          <text>(count(Country_Wines) = 1) and (Country_Wines[1] = "")</text>
+          <text>(count(Country_Wine_Preferences) = 1) and (Country_Wine_Preferences[1] = "")</text>
         </inputEntry>
         <inputEntry id="UnaryTests_06cjkrn">
           <text>(count(Region_Wine_Preferences) = 1) and (Region_Wine_Preferences[1] = "")</text>
@@ -733,7 +733,7 @@
       <rule id="DecisionRule_1pfebdf">
         <description>no country, region</description>
         <inputEntry id="UnaryTests_08y1alu">
-          <text>(count(Country_Wines) = 1) and (Country_Wines[1] = "")</text>
+          <text>(count(Country_Wine_Preferences) = 1) and (Country_Wine_Preferences[1] = "")</text>
         </inputEntry>
         <inputEntry id="UnaryTests_0eef92e">
           <text>count(Region_Wine_Preferences) &gt;= 1 and (Region_Wine_Preferences[1] != "")</text>
@@ -745,35 +745,35 @@
       <rule id="DecisionRule_18ud37o">
         <description>country, region</description>
         <inputEntry id="UnaryTests_1nt21n9">
-          <text>count(Country_Wines) &gt;= 1 and (Country_Wines[1] != "")</text>
+          <text>count(Country_Wine_Preferences) &gt;= 1 and (Country_Wine_Preferences[1] != "")</text>
         </inputEntry>
         <inputEntry id="UnaryTests_0zz7vj5">
           <text>count(Region_Wine_Preferences) &gt;= 1 and (Region_Wine_Preferences[1] != "")</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_1ug41zb">
-          <text>Country_Wines[ list contains(Region_Wine_Preferences,item)]</text>
+          <text>Country_Wine_Preferences[ list contains(Region_Wine_Preferences,item)]</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_0vncfrp">
         <description>country, no region</description>
         <inputEntry id="UnaryTests_1can73y">
-          <text>count(Country_Wines) &gt;= 1 and (Country_Wines[1] != "")</text>
+          <text>count(Country_Wine_Preferences) &gt;= 1 and (Country_Wine_Preferences[1] != "")</text>
         </inputEntry>
         <inputEntry id="UnaryTests_0mlnrde">
           <text>count(Region_Wine_Preferences) &gt;= 1 and (Region_Wine_Preferences[1] = "")</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0kxzml9">
-          <text>Wines[list contains(Country_Wines,item)]</text>
+          <text>Wines[list contains(Country_Wine_Preferences,item)]</text>
         </outputEntry>
       </rule>
     </decisionTable>
   </decision>
-  <decision id="Decision_167pnfv" name="Country">
+  <decision id="Decision_167pnfv" name="Include_Country_Preferences">
     <informationRequirement id="InformationRequirement_0hdyqzk">
       <requiredInput href="#InputData_0yx8yj6" />
     </informationRequirement>
     <decisionTable id="DecisionTable_0rszmmw" hitPolicy="COLLECT">
-      <input id="InputClause_1g5ex6d" label="Country" biodi:width="233">
+      <input id="InputClause_1g5ex6d" label="Country" biodi:width="185">
         <inputExpression id="LiteralExpression_09flzm6" typeRef="string">
           <text>Country</text>
         </inputExpression>
@@ -781,7 +781,7 @@
           <text>"italy","france","germany","spain"</text>
         </inputValues>
       </input>
-      <output id="OutputClause_1yfr8fg" label="Country_Wines" name="Country_Wines" typeRef="string">
+      <output id="OutputClause_1yfr8fg" label="Include_Country_Preferences" name="Include_Country_Preferences" typeRef="string">
         <outputValues id="UnaryTests_1ijx3hv">
           <text>"Brunello di Montalcino","Juline Châteauneuf-du-Pape","Pomerol Château de Salesl","Case Basse Sangiovese","Romanée-Saint","Aragone","Marsannay","Garrus Rosè","Corton-Charlemagne Grand Cru","Hermitage AOC","Sauternes","Trebbiano d'Abruzzo","Cremant d'Alsace","Coteau de la Beylesse","G-Max Reisling","Vajra Mosacto d'Asti","Occhio di pernice","Fino"</text>
         </outputValues>
@@ -1116,7 +1116,7 @@
   <inputData id="InputData_0delcmv" name="Region" />
   <inputData id="InputData_1mi33g4" name="Meal" />
   <decision id="Decision_0d7y1mm" name="Meal_Categories">
-    <informationRequirement id="InformationRequirement_19f1r3u">
+    <informationRequirement id="InformationRequirement_05w4br8">
       <requiredInput href="#InputData_1mi33g4" />
     </informationRequirement>
     <decisionTable id="DecisionTable_0egtfkg">
@@ -1128,12 +1128,16 @@
           <text>"sliced beef","pumpkin risotto","roast chicken with herbs","pulled pork","strawberry cheesecake","fried bass with herbs"</text>
         </inputValues>
       </input>
+      <output id="OutputClause_1v9nhs1" label="Ingredients" name="Ingredients" typeRef="" />
       <output id="OutputClause_1thvtff" label="Strong_Wine_Category" name="Strong_Wine_Category" typeRef="" />
       <output id="OutputClause_1m19bl0" label="Weak_Wine_Category" name="Weak_Wine_Category" typeRef="" />
       <rule id="DecisionRule_0iyebyx">
         <inputEntry id="UnaryTests_1koiajl">
           <text>"sliced beef"</text>
         </inputEntry>
+        <outputEntry id="LiteralExpression_13h18ru">
+          <text>["red meat", "grilled"]</text>
+        </outputEntry>
         <outputEntry id="LiteralExpression_0dslhju">
           <text>["bold red"]</text>
         </outputEntry>
@@ -1145,6 +1149,9 @@
         <inputEntry id="UnaryTests_1o6qb8o">
           <text>"fried bass with herbs"</text>
         </inputEntry>
+        <outputEntry id="LiteralExpression_18ozxht">
+          <text>["fish", "herbs", "saulted_or_fried"]</text>
+        </outputEntry>
         <outputEntry id="LiteralExpression_0ie3mur">
           <text>["light white"]</text>
         </outputEntry>
@@ -1156,6 +1163,9 @@
         <inputEntry id="UnaryTests_05yh46j">
           <text>"pumpkin risotto"</text>
         </inputEntry>
+        <outputEntry id="LiteralExpression_077olvz">
+          <text>["white_starches", "root_vegetables_and_squash", "soft_cheese_and_cream"]</text>
+        </outputEntry>
         <outputEntry id="LiteralExpression_05bkrpu">
           <text>["rich white","rose"]</text>
         </outputEntry>
@@ -1167,6 +1177,9 @@
         <inputEntry id="UnaryTests_0p7c2wt">
           <text>"roast chicken with herbs"</text>
         </inputEntry>
+        <outputEntry id="LiteralExpression_18ntfws">
+          <text>["poultry", "herbs", "roasted"]</text>
+        </outputEntry>
         <outputEntry id="LiteralExpression_1iclfcy">
           <text>["light red"]</text>
         </outputEntry>
@@ -1178,6 +1191,9 @@
         <inputEntry id="UnaryTests_1924qqe">
           <text>"pulled pork"</text>
         </inputEntry>
+        <outputEntry id="LiteralExpression_06s9p1s">
+          <text>["pork", "black_pepper", "white_starches", "alliums", "red_pepper", "grilled", "smoked"]</text>
+        </outputEntry>
         <outputEntry id="LiteralExpression_0v0sj74">
           <text>["bold red","medium red"]</text>
         </outputEntry>
@@ -1189,6 +1205,9 @@
         <inputEntry id="UnaryTests_0ux349k">
           <text>"strawberry cheesecake"</text>
         </inputEntry>
+        <outputEntry id="LiteralExpression_1qkkghh">
+          <text>["fruit_and_berries"]</text>
+        </outputEntry>
         <outputEntry id="LiteralExpression_0p5ih3p">
           <text>["sweet white"]</text>
         </outputEntry>
@@ -1199,7 +1218,7 @@
     </decisionTable>
   </decision>
   <decision id="Decision_03atqth" name="Meal_Strong_Wines">
-    <informationRequirement id="InformationRequirement_0b5mhn7">
+    <informationRequirement id="InformationRequirement_0xn9ylr">
       <requiredDecision href="#Decision_0d7y1mm" />
     </informationRequirement>
     <decisionTable id="DecisionTable_132yxgu" hitPolicy="COLLECT">
@@ -1390,22 +1409,22 @@
       <requiredDecision href="#Decision_0rggzzh" />
     </informationRequirement>
     <decisionTable id="DecisionTable_1t1xnpc">
-      <input id="InputClause_1wp2idu" label="Meal_Strong_Wines" biodi:width="192">
+      <input id="InputClause_1wp2idu" label="Meal_Strong_Wines" biodi:width="165">
         <inputExpression id="LiteralExpression_0ypl1qk" typeRef="">
           <text>Meal_Strong_Wines</text>
         </inputExpression>
       </input>
-      <input id="InputClause_1ml6dw8" label="Meal_Weak_Wines">
+      <input id="InputClause_1ml6dw8" label="Meal_Weak_Wines" biodi:width="157">
         <inputExpression id="LiteralExpression_1270aei" typeRef="">
           <text>Meal_Weak_Wines</text>
         </inputExpression>
       </input>
-      <input id="InputClause_10t34ta" label="Grape_Wine_Preferences" biodi:width="192">
+      <input id="InputClause_10t34ta" label="Grape_Wine_Preferences" biodi:width="204">
         <inputExpression id="LiteralExpression_04gj5ea" typeRef="">
           <text>Grape_Wine_Preferences</text>
         </inputExpression>
       </input>
-      <input id="InputClause_10bv1bm" label="Flavor_Wine_Preferences" biodi:width="191">
+      <input id="InputClause_10bv1bm" label="Flavor_Wine_Preferences" biodi:width="207">
         <inputExpression id="LiteralExpression_1kvyomt" typeRef="">
           <text>Flavor_Wine_Preferences</text>
         </inputExpression>
@@ -1415,7 +1434,7 @@
           <text>Geo_Wine_Preferences</text>
         </inputExpression>
       </input>
-      <input id="InputClause_1q3gwuo" label="Wine_Color">
+      <input id="InputClause_1q3gwuo" label="Wine_Color" biodi:width="150">
         <inputExpression id="LiteralExpression_1d3hjbk" typeRef="">
           <text>Wine_Color</text>
         </inputExpression>
@@ -1436,13 +1455,36 @@
           <text></text>
         </inputEntry>
         <inputEntry id="UnaryTests_1uij6df">
-          <text></text>
+          <text>count(Geo_Wine_Preferences) != 0</text>
         </inputEntry>
         <inputEntry id="UnaryTests_0y1oea8">
           <text></text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0jq10kb">
-          <text>((union(Meal_Strong_Wines,Meal_Weak_Wines))[list contains(Grape_Wine_Preferences,item)][list contains(Flavor_Wine_Preferences,item)])[list contains(Geo_Wine_Preferences,item)][list contains(Wine_Color,item)]</text>
+          <text>((union(Meal_Strong_Wines,Meal_Weak_Wines))[list contains(Grape_Wine_Preferences,item)][list contains(Flavor_Wine_Preferences,item)])[list contains(Geo_Wine_Preferences,item)][list contains(flatten(Wine_Color),item)]</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1rq3j0r">
+        <inputEntry id="UnaryTests_1opxyzt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_03ap6lm">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_049h1va">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ad1ga0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cs53g1">
+          <text>count(Geo_Wine_Preferences) = 0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0i5tjse">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1p3d11v">
+          <text>"ERROR: Country and Region don't match!"</text>
         </outputEntry>
       </rule>
     </decisionTable>
@@ -2185,7 +2227,7 @@
     </decisionTable>
   </decision>
   <decision id="Decision_10v3iub" name="Meal_Weak_Wines">
-    <informationRequirement id="InformationRequirement_0v9gv1s">
+    <informationRequirement id="InformationRequirement_0ipzsks">
       <requiredDecision href="#Decision_0d7y1mm" />
     </informationRequirement>
     <decisionTable id="DecisionTable_1qb4qne" hitPolicy="COLLECT">
@@ -2361,46 +2403,288 @@
     <informationRequirement id="InformationRequirement_0wvuvcf">
       <requiredDecision href="#Decision_0d5k5aa" />
     </informationRequirement>
-    <decisionTable id="DecisionTable_10ua9xk">
-      <input id="InputClause_097upul" label="Color">
+    <decisionTable id="DecisionTable_10ua9xk" hitPolicy="COLLECT">
+      <input id="InputClause_097upul" label="Color" biodi:width="343">
         <inputExpression id="LiteralExpression_0agkulw" typeRef="string">
           <text>Color</text>
         </inputExpression>
         <inputValues id="UnaryTests_13ylyeg">
-          <text>"red","rose","white"</text>
+          <text>"red","not red","white","not white","rose","not rose"</text>
         </inputValues>
       </input>
       <output id="OutputClause_0mqj79e" label="Wine_Color" name="Wine_Color" typeRef="" biodi:width="299" />
-      <rule id="DecisionRule_026iaf5">
-        <inputEntry id="UnaryTests_0p6ot59">
-          <text>"red"</text>
+      <rule id="DecisionRule_09eluog">
+        <inputEntry id="UnaryTests_0o0ztlj">
+          <text>"red", "not white", "not rose"</text>
         </inputEntry>
-        <outputEntry id="LiteralExpression_1vurfm5">
-          <text>["Brunello di Montalcino","Juline Châteauneuf-du-Pape","Pomerol Château de Salesl","Case Basse Sangiovese","Romanée-Saint","Aragone","Occhio di pernice"]</text>
+        <outputEntry id="LiteralExpression_0160que">
+          <text>["Brunello di Montalcino","Juline Châteauneuf-du-Pape", "Pomerol Château de Salesl", "Case Basse Sangiovese", "Romanée-Saint", "Aragone", "Occhio di pernice"]</text>
         </outputEntry>
       </rule>
       <rule id="DecisionRule_10hd3ux">
         <inputEntry id="UnaryTests_0n7bshp">
-          <text>"rose"</text>
+          <text>"rose", "not red", "not white"</text>
         </inputEntry>
         <outputEntry id="LiteralExpression_0srxgkf">
-          <text>["Marsannay","Garrus Rosè"]</text>
+          <text>["Marsannay", "Garrus Rosè"]</text>
         </outputEntry>
       </rule>
-      <rule id="DecisionRule_0qv3q25">
-        <inputEntry id="UnaryTests_0nfk368">
-          <text>"white"</text>
+      <rule id="DecisionRule_11d7bcu">
+        <inputEntry id="UnaryTests_1l5inxl">
+          <text>"white", "not red", "not rose"</text>
         </inputEntry>
-        <outputEntry id="LiteralExpression_1dsag1o">
-          <text>["Corton-Charlemagne Grand Cru","Hermitage AOC","Sauternes","Trebbiano d'Abruzzo","Cremant d'Alsace","Coteau de la Beylesse","G-Max Reisling","Vajra Mosacto d'Asti","Fino"]</text>
+        <outputEntry id="LiteralExpression_1jehm62">
+          <text>["Corton-Charlemagne Grand Cru", "Hermitage AOC", "Sauternes", "Trebbiano d'Abruzzo", "Cremant d'Alsace", "Coteau de la Beylesse", "G-Max Reisling", "Vajra Mosacto d'Asti", "Fino"]</text>
         </outputEntry>
       </rule>
-      <rule id="DecisionRule_0ah3eoh">
-        <inputEntry id="UnaryTests_1xqc53f">
+      <rule id="DecisionRule_1tvwjo5">
+        <inputEntry id="UnaryTests_1q3fjco">
           <text>""</text>
         </inputEntry>
-        <outputEntry id="LiteralExpression_1l27e96">
+        <outputEntry id="LiteralExpression_1swwcmd">
           <text>Wines</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_0y65t5m" name="No_Country" />
+  <decision id="Decision_1sdyw1x" name="Exclude_Country_Preferences">
+    <informationRequirement id="InformationRequirement_0ln4yew">
+      <requiredInput href="#InputData_0y65t5m" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_071q3u4" hitPolicy="COLLECT">
+      <input id="InputClause_1urk4bb" label="No_Country" biodi:width="192">
+        <inputExpression id="LiteralExpression_1q3hiy3" typeRef="string">
+          <text>No_Country</text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0jrm2ip">
+          <text>"italy","france","germany","spain"</text>
+        </inputValues>
+      </input>
+      <output id="OutputClause_1np38zb" label="Exclude_Country_Preferences" name="Exclude_Country_Preferences" typeRef="string">
+        <outputValues id="UnaryTests_1nhwsky">
+          <text>"Brunello di Montalcino","Juline Châteauneuf-du-Pape","Pomerol Château de Salesl","Case Basse Sangiovese","Romanée-Saint","Aragone","Marsannay","Garrus Rosè","Corton-Charlemagne Grand Cru","Hermitage AOC","Sauternes","Trebbiano d'Abruzzo","Cremant d'Alsace","Coteau de la Beylesse","G-Max Reisling","Vajra Mosacto d'Asti","Occhio di pernice","Fino"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_0nybdt4">
+        <inputEntry id="UnaryTests_1wtwe8w">
+          <text>"italy"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0nq3h6n">
+          <text>"Brunello di Montalcino"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1llj8vr">
+        <inputEntry id="UnaryTests_1tysssq">
+          <text>"italy"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07m60de">
+          <text>"Case Basse Sangiovese"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1oyduox">
+        <inputEntry id="UnaryTests_09v5png">
+          <text>"italy"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0h8k18j">
+          <text>"Trebbiano d'Abruzzo"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07l271i">
+        <inputEntry id="UnaryTests_0fgcd4u">
+          <text>"italy"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0t2krai">
+          <text>"Vajra Mosacto d'Asti"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ung5e4">
+        <inputEntry id="UnaryTests_1x2wt7k">
+          <text>"italy"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vk95l8">
+          <text>"Occhio di pernice"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12bmps3">
+        <inputEntry id="UnaryTests_0f9fqgs">
+          <text>"france"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1hbun54">
+          <text>"Juline Châteauneuf-du-Pape"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1hwoa90">
+        <inputEntry id="UnaryTests_18qvddu">
+          <text>"france"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yrbnom">
+          <text>"Pomerol Château de Salesl"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_000ig0u">
+        <inputEntry id="UnaryTests_06zuhwu">
+          <text>"france"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17sfnr9">
+          <text>"Romanée-Saint"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18zx8qe">
+        <inputEntry id="UnaryTests_17lwuou">
+          <text>"france"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rr0od0">
+          <text>"Marsannay"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16llzd9">
+        <inputEntry id="UnaryTests_0x650oq">
+          <text>"france"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1g4x1sq">
+          <text>"Garrus Rosè"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1fyeg6y">
+        <inputEntry id="UnaryTests_0pmtki6">
+          <text>"france"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wxdvxd">
+          <text>"Corton-Charlemagne Grand Cru"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02u4nvb">
+        <inputEntry id="UnaryTests_1qmlb67">
+          <text>"france"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gldpcj">
+          <text>"Hermitage AOC"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_062cod5">
+        <inputEntry id="UnaryTests_0p7xdan">
+          <text>"france"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0hjp5px">
+          <text>"Sauternes"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1r5dwow">
+        <inputEntry id="UnaryTests_1d1g3a1">
+          <text>"france"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0uivkxq">
+          <text>"Cremant d'Alsace"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0gvnms4">
+        <inputEntry id="UnaryTests_1ijm31l">
+          <text>"france"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1h82sj2">
+          <text>"Coteau de la Beylesse"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1mkwts8">
+        <inputEntry id="UnaryTests_1gb4qd0">
+          <text>"germany"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1lp5tuf">
+          <text>"G-Max Reisling"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vumy6h">
+        <inputEntry id="UnaryTests_1z1257b">
+          <text>"spain"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0mg3qqo">
+          <text>"Aragone"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rix1ap">
+        <inputEntry id="UnaryTests_142d3rs">
+          <text>"spain"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1akx7nx">
+          <text>"Fino"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1310bnc">
+        <inputEntry id="UnaryTests_0uvhhnn">
+          <text>""</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1qxgvmw">
+          <text>""</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1th8z4k" name="Country_Wine_Preferences">
+    <informationRequirement id="InformationRequirement_1ehyvsa">
+      <requiredDecision href="#Decision_167pnfv" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_05hk6ou">
+      <requiredDecision href="#Decision_1sdyw1x" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_11mdp5w">
+      <input id="InputClause_1o99nno" label="Include_Country_Preferences">
+        <inputExpression id="LiteralExpression_04ibs81" typeRef="string">
+          <text>Include_Country_Preferences</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0utmbqb" label="Exclude_Country_Preferences">
+        <inputExpression id="LiteralExpression_0f5djal" typeRef="string">
+          <text>Exclude_Country_Preferences</text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1s6kj3l" label="Country_Wine_Preferences" name="Country_Wine_Preferences" typeRef="" biodi:width="410" />
+      <rule id="DecisionRule_078v711">
+        <description>no include, no exclude</description>
+        <inputEntry id="UnaryTests_1dljdjv">
+          <text>(count(Include_Country_Preferences) = 1) and (Include_Country_Preferences[1] = "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xrg1t9">
+          <text>(count(Exclude_Country_Preferences) = 1) and (Exclude_Country_Preferences[1] = "")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1arvwb6">
+          <text>Wines</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1cfaryn">
+        <description>no include, exclude</description>
+        <inputEntry id="UnaryTests_1rkmsds">
+          <text>(count(Include_Country_Preferences) = 1) and (Include_Country_Preferences[1] = "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04op607">
+          <text>(count(Exclude_Country_Preferences) &gt;= 1) and (Exclude_Country_Preferences[1] != "")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_085dfrp">
+          <text>Wines[not (list contains (Exclude_Country_Preferences,item))]</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cg5ccl">
+        <description>include, no exclude</description>
+        <inputEntry id="UnaryTests_0ukslpf">
+          <text>(count(Include_Country_Preferences) &gt;= 1) and (Include_Country_Preferences[1] != "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1omg02i">
+          <text>(count(Exclude_Country_Preferences) = 1) and (Exclude_Country_Preferences[1] = "")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0onxqb3">
+          <text>Wines[list contains(Include_Country_Preferences,item)]</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hi8llz">
+        <description>include, exclude</description>
+        <inputEntry id="UnaryTests_1bhwbd6">
+          <text>(count(Include_Country_Preferences) &gt;= 1) and (Include_Country_Preferences[1] != "")</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0k5xf2l">
+          <text>(count(Exclude_Country_Preferences) &gt;= 1) and (Exclude_Country_Preferences[1] != "")</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cel9za">
+          <text>Wines[list contains (Include_Country_Preferences,item)][not(list contains(Exclude_Country_Preferences, item))]</text>
         </outputEntry>
       </rule>
     </decisionTable>
@@ -2408,243 +2692,270 @@
   <dmndi:DMNDI>
     <dmndi:DMNDiagram>
       <dmndi:DMNShape dmnElementRef="Decision_0o84l7y">
-        <dc:Bounds height="80" width="180" x="160" y="770" />
+        <dc:Bounds height="80" width="180" x="160" y="860" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="DMNShape_0r337e4" dmnElementRef="InputData_1imjw6x">
-        <dc:Bounds height="45" width="125" x="187" y="907" />
+        <dc:Bounds height="45" width="125" x="187" y="997" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_1udi9yo" dmnElementRef="InformationRequirement_1hsntba">
-        <di:waypoint x="250" y="907" />
-        <di:waypoint x="250" y="870" />
-        <di:waypoint x="250" y="850" />
+        <di:waypoint x="250" y="997" />
+        <di:waypoint x="250" y="960" />
+        <di:waypoint x="250" y="940" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_156j494" dmnElementRef="Decision_12r2wfp">
-        <dc:Bounds height="80" width="180" x="430" y="770" />
+        <dc:Bounds height="80" width="180" x="430" y="860" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="DMNShape_1k3w04p" dmnElementRef="InputData_1nxh79m">
-        <dc:Bounds height="45" width="125" x="457" y="907" />
+        <dc:Bounds height="45" width="125" x="457" y="997" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_1qwj316" dmnElementRef="InformationRequirement_0aa53wm">
-        <di:waypoint x="520" y="907" />
-        <di:waypoint x="520" y="870" />
-        <di:waypoint x="520" y="850" />
+        <di:waypoint x="520" y="997" />
+        <di:waypoint x="520" y="960" />
+        <di:waypoint x="520" y="940" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_1bq5162" dmnElementRef="Decision_040a83c">
-        <dc:Bounds height="80" width="180" x="700" y="770" />
+        <dc:Bounds height="80" width="180" x="700" y="860" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="DMNShape_1ho1ie4" dmnElementRef="InputData_0lgb3yd">
-        <dc:Bounds height="45" width="125" x="727" y="907" />
+        <dc:Bounds height="45" width="125" x="727" y="997" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_0fewpeq" dmnElementRef="InformationRequirement_1gse1b5">
-        <di:waypoint x="790" y="907" />
-        <di:waypoint x="790" y="870" />
-        <di:waypoint x="790" y="850" />
+        <di:waypoint x="790" y="997" />
+        <di:waypoint x="790" y="960" />
+        <di:waypoint x="790" y="940" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_0xblzol" dmnElementRef="Decision_1yuiugx">
-        <dc:Bounds height="80" width="180" x="430" y="560" />
+        <dc:Bounds height="80" width="180" x="430" y="650" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_143cvgy" dmnElementRef="InformationRequirement_0kf3t7t">
-        <di:waypoint x="250" y="770" />
-        <di:waypoint x="475" y="660" />
-        <di:waypoint x="475" y="640" />
+        <di:waypoint x="250" y="860" />
+        <di:waypoint x="475" y="750" />
+        <di:waypoint x="475" y="730" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="DMNEdge_15cjbx1" dmnElementRef="InformationRequirement_1vai3lh">
-        <di:waypoint x="520" y="770" />
-        <di:waypoint x="520" y="660" />
-        <di:waypoint x="520" y="640" />
+        <di:waypoint x="520" y="860" />
+        <di:waypoint x="520" y="750" />
+        <di:waypoint x="520" y="730" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="DMNEdge_0oz11hm" dmnElementRef="InformationRequirement_0wo2p66">
-        <di:waypoint x="790" y="770" />
-        <di:waypoint x="565" y="660" />
-        <di:waypoint x="565" y="640" />
+        <di:waypoint x="790" y="860" />
+        <di:waypoint x="565" y="750" />
+        <di:waypoint x="565" y="730" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="DMNEdge_1bc4cz1" dmnElementRef="InformationRequirement_1qylxaw">
-        <di:waypoint x="740" y="650" />
-        <di:waypoint x="630" y="600" />
-        <di:waypoint x="610" y="600" />
+        <di:waypoint x="740" y="740" />
+        <di:waypoint x="630" y="690" />
+        <di:waypoint x="610" y="690" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_1yo3vf4" dmnElementRef="Decision_0d5k5aa">
-        <dc:Bounds height="80" width="180" x="740" y="610" />
+        <dc:Bounds height="80" width="180" x="740" y="700" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="DMNShape_0j4h0tg" dmnElementRef="Decision_17nosvj">
-        <dc:Bounds height="80" width="180" x="1045" y="560" />
+        <dc:Bounds height="80" width="180" x="1020" y="660" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="DMNShape_0f8kyjh" dmnElementRef="Decision_167pnfv">
-        <dc:Bounds height="80" width="180" x="970" y="720" />
+        <dc:Bounds height="80" width="180" x="930" y="940" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="DMNShape_046c705" dmnElementRef="Decision_0uhslfl">
-        <dc:Bounds height="80" width="180" x="1170" y="850" />
+        <dc:Bounds height="80" width="180" x="1360" y="940" />
       </dmndi:DMNShape>
-      <dmndi:DMNEdge id="DMNEdge_0nm5ydf" dmnElementRef="InformationRequirement_0yditpu">
-        <di:waypoint x="1060" y="720" />
-        <di:waypoint x="1105" y="660" />
-        <di:waypoint x="1105" y="640" />
-      </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_11f4kdt" dmnElementRef="InputData_0yx8yj6">
-        <dc:Bounds height="45" width="125" x="997" y="907" />
+        <dc:Bounds height="45" width="125" x="957" y="1067" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_0qlpka8" dmnElementRef="InformationRequirement_0hdyqzk">
-        <di:waypoint x="1060" y="907" />
-        <di:waypoint x="1060" y="820" />
-        <di:waypoint x="1060" y="800" />
+        <di:waypoint x="1020" y="1067" />
+        <di:waypoint x="1020" y="1040" />
+        <di:waypoint x="1020" y="1020" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_01ui6y9" dmnElementRef="InputData_0delcmv">
-        <dc:Bounds height="45" width="125" x="1197" y="977" />
+        <dc:Bounds height="45" width="125" x="1387" y="1067" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_0om6pbw" dmnElementRef="InformationRequirement_08xx7zf">
-        <di:waypoint x="1260" y="977" />
-        <di:waypoint x="1260" y="950" />
-        <di:waypoint x="1260" y="930" />
+        <di:waypoint x="1450" y="1067" />
+        <di:waypoint x="1450" y="1040" />
+        <di:waypoint x="1450" y="1020" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_0lzs35p" dmnElementRef="InputData_1mi33g4">
-        <dc:Bounds height="45" width="125" x="767" y="97" />
+        <dc:Bounds height="45" width="125" x="767" y="77" />
       </dmndi:DMNShape>
-      <dmndi:DMNEdge id="DMNEdge_1ievrqp" dmnElementRef="InformationRequirement_19f1r3u">
-        <di:waypoint x="830" y="142" />
-        <di:waypoint x="830" y="160" />
-        <di:waypoint x="830" y="180" />
-      </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_1s1a8qf" dmnElementRef="Decision_0d7y1mm">
-        <dc:Bounds height="80" width="180" x="740" y="180" />
+        <dc:Bounds height="80" width="180" x="740" y="190" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="DMNShape_0zk9ctg" dmnElementRef="Decision_03atqth">
-        <dc:Bounds height="80" width="180" x="630" y="290" />
+        <dc:Bounds height="80" width="180" x="630" y="380" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_0q2l5bl" dmnElementRef="InformationRequirement_0z7cfwx">
-        <di:waypoint x="520" y="560" />
-        <di:waypoint x="785" y="500" />
-        <di:waypoint x="785" y="480" />
+        <di:waypoint x="520" y="650" />
+        <di:waypoint x="785" y="590" />
+        <di:waypoint x="785" y="570" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="DMNEdge_13n7ypb" dmnElementRef="InformationRequirement_0cvslo4">
-        <di:waypoint x="1135" y="560" />
-        <di:waypoint x="875" y="500" />
-        <di:waypoint x="875" y="480" />
+        <di:waypoint x="1110" y="660" />
+        <di:waypoint x="875" y="590" />
+        <di:waypoint x="875" y="570" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_0gprsw2" dmnElementRef="Decision_1xy7rdn">
-        <dc:Bounds height="80" width="180" x="740" y="400" />
+        <dc:Bounds height="80" width="180" x="740" y="490" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_0dxt7dt" dmnElementRef="InformationRequirement_1t8sk37">
-        <di:waypoint x="920" y="650" />
-        <di:waypoint x="1025" y="600" />
-        <di:waypoint x="1045" y="600" />
+        <di:waypoint x="920" y="740" />
+        <di:waypoint x="1000" y="740" />
+        <di:waypoint x="1000" y="700" />
+        <di:waypoint x="1020" y="700" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="DMNEdge_19wtwx9" dmnElementRef="InformationRequirement_1lmhmwg">
-        <di:waypoint x="830" y="610" />
-        <di:waypoint x="830" y="500" />
-        <di:waypoint x="830" y="480" />
+        <di:waypoint x="830" y="700" />
+        <di:waypoint x="830" y="590" />
+        <di:waypoint x="830" y="570" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="DMNEdge_1pg8nr9" dmnElementRef="InformationRequirement_0fbjp6c">
-        <di:waypoint x="1045" y="440" />
-        <di:waypoint x="940" y="440" />
-        <di:waypoint x="920" y="440" />
+        <di:waypoint x="1045" y="530" />
+        <di:waypoint x="940" y="530" />
+        <di:waypoint x="920" y="530" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_0yq2f6c" dmnElementRef="Decision_1mwqzsg">
-        <dc:Bounds height="80" width="180" x="1045" y="400" />
+        <dc:Bounds height="80" width="180" x="1045" y="490" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_0oqfpyw" dmnElementRef="InformationRequirement_1bughwm">
-        <di:waypoint x="1290" y="500" />
-        <di:waypoint x="1245" y="440" />
-        <di:waypoint x="1225" y="440" />
+        <di:waypoint x="1380" y="550" />
+        <di:waypoint x="1380" y="530" />
+        <di:waypoint x="1225" y="530" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="DMNEdge_168vwy8" dmnElementRef="InformationRequirement_0kisqhh">
-        <di:waypoint x="1380" y="340" />
-        <di:waypoint x="1135" y="380" />
-        <di:waypoint x="1135" y="400" />
+        <di:waypoint x="1380" y="430" />
+        <di:waypoint x="1380" y="470" />
+        <di:waypoint x="1135" y="470" />
+        <di:waypoint x="1135" y="490" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_1vhzyrz" dmnElementRef="InputData_1rinvn9">
-        <dc:Bounds height="45" width="125" x="1317" y="598" />
+        <dc:Bounds height="45" width="125" x="1317" y="688" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_0s0qpn9" dmnElementRef="InformationRequirement_1no0ntu">
-        <di:waypoint x="1380" y="598" />
-        <di:waypoint x="1380" y="560" />
-        <di:waypoint x="1380" y="540" />
+        <di:waypoint x="1380" y="688" />
+        <di:waypoint x="1380" y="650" />
+        <di:waypoint x="1380" y="630" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_11i5rb0" dmnElementRef="InputData_0dsds8a">
-        <dc:Bounds height="45" width="125" x="1317" y="158" />
+        <dc:Bounds height="45" width="125" x="1317" y="248" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_0q9qe5v" dmnElementRef="InformationRequirement_0cs2amb">
-        <di:waypoint x="1380" y="203" />
-        <di:waypoint x="1380" y="240" />
-        <di:waypoint x="1380" y="260" />
+        <di:waypoint x="1380" y="293" />
+        <di:waypoint x="1380" y="330" />
+        <di:waypoint x="1380" y="350" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_0t1rz7u" dmnElementRef="Decision_1gzqcuo">
-        <dc:Bounds height="80" width="180" x="1290" y="260" />
+        <dc:Bounds height="80" width="180" x="1290" y="350" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="DMNShape_0fakytd" dmnElementRef="Decision_13h96z8">
-        <dc:Bounds height="80" width="180" x="1290" y="460" />
+        <dc:Bounds height="80" width="180" x="1290" y="550" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="DMNShape_1eqd8jv" dmnElementRef="Decision_1uye8b1">
-        <dc:Bounds height="80" width="180" x="1410" y="850" />
+        <dc:Bounds height="80" width="180" x="1580" y="940" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="DMNShape_1pmr8ut" dmnElementRef="InputData_0hrpynz">
-        <dc:Bounds height="45" width="125" x="1437" y="977" />
+        <dc:Bounds height="45" width="125" x="1607" y="1067" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_0mg2bjq" dmnElementRef="InformationRequirement_1y2ajm3">
-        <di:waypoint x="1500" y="977" />
-        <di:waypoint x="1500" y="950" />
-        <di:waypoint x="1500" y="930" />
+        <di:waypoint x="1670" y="1067" />
+        <di:waypoint x="1670" y="1040" />
+        <di:waypoint x="1670" y="1020" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="DMNEdge_1av3bto" dmnElementRef="InformationRequirement_18o2esg">
-        <di:waypoint x="1260" y="850" />
-        <di:waypoint x="1290" y="820" />
-        <di:waypoint x="1290" y="800" />
+        <di:waypoint x="1450" y="940" />
+        <di:waypoint x="1530" y="910" />
+        <di:waypoint x="1530" y="890" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="DMNEdge_1drxvmi" dmnElementRef="InformationRequirement_1ijw1hr">
-        <di:waypoint x="1500" y="850" />
-        <di:waypoint x="1350" y="820" />
-        <di:waypoint x="1350" y="800" />
+        <di:waypoint x="1670" y="940" />
+        <di:waypoint x="1590" y="910" />
+        <di:waypoint x="1590" y="890" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_1gwj4s0" dmnElementRef="Decision_0cdk94i">
-        <dc:Bounds height="80" width="180" x="1230" y="720" />
+        <dc:Bounds height="80" width="180" x="1470" y="810" />
       </dmndi:DMNShape>
-      <dmndi:DMNEdge id="DMNEdge_1ollj7d" dmnElementRef="InformationRequirement_1alt2u5">
-        <di:waypoint x="1320" y="720" />
-        <di:waypoint x="1165" y="660" />
-        <di:waypoint x="1165" y="640" />
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="DMNEdge_1935ljz" dmnElementRef="InformationRequirement_0b5mhn7">
-        <di:waypoint x="830" y="260" />
-        <di:waypoint x="720" y="270" />
-        <di:waypoint x="720" y="290" />
-      </dmndi:DMNEdge>
-      <dmndi:DMNEdge id="DMNEdge_0ltcywv" dmnElementRef="InformationRequirement_0v9gv1s">
-        <di:waypoint x="830" y="260" />
-        <di:waypoint x="940" y="270" />
-        <di:waypoint x="940" y="290" />
-      </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_1untpu0" dmnElementRef="Decision_10v3iub">
-        <dc:Bounds height="80" width="180" x="850" y="290" />
+        <dc:Bounds height="80" width="180" x="850" y="380" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_019sxmn" dmnElementRef="InformationRequirement_1ou36fq">
-        <di:waypoint x="720" y="370" />
-        <di:waypoint x="800" y="380" />
-        <di:waypoint x="800" y="400" />
+        <di:waypoint x="720" y="460" />
+        <di:waypoint x="800" y="470" />
+        <di:waypoint x="800" y="490" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="DMNEdge_11yi4rz" dmnElementRef="InformationRequirement_1tqql9o">
-        <di:waypoint x="940" y="370" />
-        <di:waypoint x="860" y="380" />
-        <di:waypoint x="860" y="400" />
+        <di:waypoint x="940" y="460" />
+        <di:waypoint x="860" y="470" />
+        <di:waypoint x="860" y="490" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_0dafdbf" dmnElementRef="InputData_10in60k">
-        <dc:Bounds height="45" width="125" x="257" y="417" />
+        <dc:Bounds height="45" width="125" x="267" y="507" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_0w1ufye" dmnElementRef="InformationRequirement_0hsce1k">
-        <di:waypoint x="382" y="440" />
-        <di:waypoint x="410" y="440" />
-        <di:waypoint x="430" y="440" />
+        <di:waypoint x="392" y="530" />
+        <di:waypoint x="410" y="530" />
+        <di:waypoint x="430" y="530" />
       </dmndi:DMNEdge>
       <dmndi:DMNShape id="DMNShape_16awx6w" dmnElementRef="Decision_0rggzzh">
-        <dc:Bounds height="80" width="180" x="430" y="400" />
+        <dc:Bounds height="80" width="180" x="430" y="490" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="DMNEdge_1ed9xin" dmnElementRef="InformationRequirement_0wvuvcf">
-        <di:waypoint x="830" y="610" />
-        <di:waypoint x="520" y="500" />
-        <di:waypoint x="520" y="480" />
+        <di:waypoint x="830" y="700" />
+        <di:waypoint x="520" y="590" />
+        <di:waypoint x="520" y="570" />
       </dmndi:DMNEdge>
       <dmndi:DMNEdge id="DMNEdge_1bxo5n9" dmnElementRef="InformationRequirement_1a7s1xw">
-        <di:waypoint x="610" y="440" />
-        <di:waypoint x="720" y="440" />
-        <di:waypoint x="740" y="440" />
+        <di:waypoint x="610" y="530" />
+        <di:waypoint x="720" y="530" />
+        <di:waypoint x="740" y="530" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_14usiwg" dmnElementRef="InformationRequirement_05w4br8">
+        <di:waypoint x="830" y="122" />
+        <di:waypoint x="830" y="170" />
+        <di:waypoint x="830" y="190" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_14nccye" dmnElementRef="InformationRequirement_0xn9ylr">
+        <di:waypoint x="830" y="270" />
+        <di:waypoint x="720" y="360" />
+        <di:waypoint x="720" y="380" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_17amct2" dmnElementRef="InformationRequirement_0ipzsks">
+        <di:waypoint x="830" y="270" />
+        <di:waypoint x="940" y="360" />
+        <di:waypoint x="940" y="380" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_147dcz6" dmnElementRef="InputData_0y65t5m">
+        <dc:Bounds height="45" width="125" x="1167" y="1068" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_006bslx" dmnElementRef="InformationRequirement_0ln4yew">
+        <di:waypoint x="1230" y="1068" />
+        <di:waypoint x="1230" y="1040" />
+        <di:waypoint x="1230" y="1020" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0sfml0w" dmnElementRef="Decision_1sdyw1x">
+        <dc:Bounds height="80" width="180" x="1140" y="940" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_0hd96f8" dmnElementRef="Decision_1th8z4k">
+        <dc:Bounds height="80" width="180" x="1045" y="800" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0a1dsxl" dmnElementRef="InformationRequirement_1ehyvsa">
+        <di:waypoint x="1020" y="940" />
+        <di:waypoint x="1105" y="900" />
+        <di:waypoint x="1105" y="880" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0lqon4e" dmnElementRef="InformationRequirement_05hk6ou">
+        <di:waypoint x="1230" y="940" />
+        <di:waypoint x="1165" y="900" />
+        <di:waypoint x="1165" y="880" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1cud886" dmnElementRef="InformationRequirement_1b58jzw">
+        <di:waypoint x="1080" y="800" />
+        <di:waypoint x="1080" y="740" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0l2vl47" dmnElementRef="InformationRequirement_0vlml4l">
+        <di:waypoint x="1470" y="810" />
+        <di:waypoint x="1310" y="810" />
+        <di:waypoint x="1310" y="760" />
+        <di:waypoint x="1140" y="760" />
+        <di:waypoint x="1140" y="740" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
