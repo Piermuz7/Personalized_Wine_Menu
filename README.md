@@ -21,7 +21,7 @@ additional constraints for the inputs:
 Further consider these constraints for the outputs:
   * Of course, the output is a list of concrete wines (in Prolog, you might return the wines one after another).
   * For each wine a matching factor is provided which describes how good the
-wine matches the meal. There is a perfect match and a match (cmp. footnote 4)
+wine matches the meal. There is a perfect match and a match (cmp. footnote [^4])
 2. Create different knowledge-based solutions based on 
 *   decision tables
 *   prolog
