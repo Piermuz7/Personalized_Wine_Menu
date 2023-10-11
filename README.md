@@ -25,7 +25,8 @@ additional constraints for the inputs:
    *   prolog
    * knowledge graph.
  
-3. Design a graphical modeling language, which allows a chef to represent meals and wines in a graphical way, such that it contains all information relevant for the customers to select according to their preferences
+3. Design a graphical modeling language, which allows a chef to represent meals and wines in a graphical way, such that it contains all information relevant for the customers to select according to their preferences.
+<br>
 Write a brief explanation of each solution and a conclusion chapter that explains the advantages and disadvantages of the three knowledge-based solutions.
 
 [^1]: https://en.wikipedia.org/wiki/List_of_wine-producing_regions
